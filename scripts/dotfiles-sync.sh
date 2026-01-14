@@ -11,4 +11,7 @@ git add .
 git commit -m "Auto-commit: $DATE"
 git push
 
+stow . 
+stow -t /etc/systemd/system $DOTFILES/systemd
+
 cd $CURRENT_DIR
