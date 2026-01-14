@@ -1,0 +1,13 @@
+[Unit]
+Description=obsidian sync
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=eugene
+Group=eugene
+ExecStart=/home/eugene/scripts/obsidian-sync.sh
+
+[Install]
+WantedBy=multi-user.target

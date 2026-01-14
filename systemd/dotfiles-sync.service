@@ -1,0 +1,13 @@
+[Unit]
+Description=git sync pc config
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=eugene
+Group=eugene
+ExecStart=/home/eugene/scripts/dotfiles-sync.sh
+
+[Install]
+WantedBy=multi-user.target
