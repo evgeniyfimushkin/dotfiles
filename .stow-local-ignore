@@ -2,3 +2,5 @@
 .gitignore
 .gitconfig
 .zshrc.d/keys.zsh
+install.sh
+systemd
