@@ -7,6 +7,10 @@
     username = "eugene";
     homeDirectory = "/home/eugene";
     stateVersion = "25.11";
+    packages = with pkgs; [
+        btop
+        vscodium
+    ];
     # pointerCursor = {
     #   # package = pkgs.vanilla-dmz;
     #   # name = "Vanilla-DMZ";
@@ -23,23 +27,23 @@
   gtk = {
     enable = true;
     theme = {
-      name = "Catppuccin-Macchiato-Standard-Blue-Dark";
+      name = "Catppuccin-Mocha-Standard-Blue-Dark";
       package = pkgs.catppuccin-gtk.override {
         accents = [ "blue" ];
         size = "standard";
-        variant = "macchiato";
+        variant = "mocha";
       };
     };
     iconTheme = {
       name = "Papirus-Dark";
       package = pkgs.catppuccin-papirus-folders.override {
-        flavor = "macchiato";
+        flavor = "mocha";
         accent = "blue";
       };
     };
     cursorTheme = {
-      name = "Catppuccin-Macchiato-Dark-Cursors";
-      package = pkgs.catppuccin-cursors.macchiatoDark;
+      name = "Catppuccin-Mocha-Dark-Cursors";
+      package = pkgs.catppuccin-cursors.mochaDark;
     };
     gtk3 = {
       extraConfig.gtk-application-prefer-dark-theme = true;
@@ -48,30 +52,32 @@
 
   home.pointerCursor = {
     gtk.enable = true;
-    name = "Catppuccin-Macchiato-Dark-Cursors";
-    package = pkgs.catppuccin-cursors.macchiatoDark;
+    name = "Catppuccin-Mocha-Dark-Cursors";
+    package = pkgs.catppuccin-cursors.mochaDark;
     size = 16;
   };
 
   dconf.settings = {
     "org/gnome/desktop/interface" = {
-      gtk-theme = "Catppuccin-Macchiato-Standard-Blue-Dark";
+      gtk-theme = "Catppuccin-Mocha-Standard-Blue-Dark";
       color-scheme = "prefer-dark";
     };
 
     # For Gnome shell
     "org/gnome/shell/extensions/user-theme" = {
-      name = "Catppuccin-Macchiato-Standard-Blue-Dark";
+      name = "Catppuccin-Mocha-Standard-Blue-Dark";
     };
   };
 
   qt = {
     enable = true;
     platformTheme = "qtct";
-    style.name = "kvantum";
+    style = {
+      name = "kvantum";
+    };
   };
 
   xdg.configFile."Kvantum/kvantum.kvconfig".source = (pkgs.formats.ini { }).generate "kvantum.kvconfig" {
-    General.theme = "Catppuccin-Macchiato-Blue";
+    General.theme = "Catppuccin-Mocha-Blue";
   };
 }

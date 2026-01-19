@@ -15,12 +15,47 @@
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.kernelModules = [ "tcp_bbr" "tun" ];
+  boot.kernel.sysctl = {
+    "net.ipv4.tcp_congestion_control" = "bbr";
+    "net.ipv4.tcp_fastopen" = 3;
+    "net.ipv4.ip_forward" = 1;
+    "net.ipv6.conf.all.forwarding" = 1;
+    "net.ipv6.conf.default.forwarding" = 1;
+    
+    "net.core.default_qdisc" = "fq";
+    "net.ipv4.tcp_notsent_lowat" = 16384;
+    # Дополнительные настройки для лучшей работы VPN
+    "net.ipv4.conf.all.rp_filter" = 0;
+    "net.ipv4.conf.default.rp_filter" = 0;
+    "net.ipv4.conf.tun0.rp_filter" = 0;
+    "net.ipv4.conf.all.accept_redirects" = 0;
+    "net.ipv4.conf.all.send_redirects" = 0;
+  };
 
   # networking.hostName = "nixos"; # Define your hostname.
-
+    systemd.targets.sleep.enable = false;
+  systemd.targets.suspend.enable = false;
+  systemd.targets.hibernate.enable = false;
+  systemd.targets.hybrid-sleep.enable = false;
   # Configure network connections interactively with nmcli or nmtui.
   networking.networkmanager.enable = true;
-
+  networking.extraHosts = ''
+45.155.204.190 chatgpt.com
+95.182.120.241 chatgpt.com
+45.155.204.190 ab.chatgpt.com
+95.182.120.241 ab.chatgpt.com
+45.155.204.190 gpt3-openai.com
+95.182.120.241 gpt3-openai.com
+45.155.204.190 operator.chatgpt.com
+95.182.120.241 operator.chatgpt.com
+45.155.204.190 sora.chatgpt.com
+95.182.120.241 sora.chatgpt.com
+45.155.204.190 webrtc.chatgpt.com
+95.182.120.241 webrtc.chatgpt.com
+45.155.204.190 www.chatgpt.com
+95.182.120.241 www.chatgpt.com
+  '';
   # Set your time zone.
   time.timeZone = "Asia/Novosibirsk";
 
@@ -81,31 +116,39 @@
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   programs.zsh = {
-	enable = true;
-    	#enableCompletion = true;
-    	#autosuggestions.enable = true;  # автоматические подсказки
-    	#syntaxHighlighting.enable = true;
-	ohMyZsh = {
-		enable = true;
-		plugins = [ "git" "docker" "sudo" ];
-		theme = "maran";
-	};
-  
+	  enable = true;
+     	#enableCompletion = true;
+     	#autosuggestions.enable = true;  # автоматические подсказки
+     	#syntaxHighlighting.enable = true;
+	  ohMyZsh = {
+	  	enable = true;
+	  	plugins = [ "git" "docker" "sudo" ];
+	  	theme = "maran";
+	  };
+
 	
   };
+  virtualisation.docker.rootless = {
+    enable = true;
+    setSocketVariable = true;
+  };
+
+  users.groups.tun = {};
   users.users.eugene = {
     isNormalUser = true;
     shell = pkgs.zsh;
     extraGroups = [ 
       "wheel" 
       "networkmanager"
+      "tun"
       "docker"
     ]; # Enable ‘sudo’ for the user.
+
+  # Создайте группу tun и добавьте пользователя
     packages = with pkgs; [
       tree
     ];
   };
-
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [
     stdenv.cc.cc.lib
@@ -121,6 +164,9 @@
     glib
     gtk3
     gtk2
+    libepoxy
+    gdk-pixbuf
+    libxml2
   ];
   programs.firefox.enable = true;
   programs.hyprland = {
@@ -133,6 +179,7 @@
   # You can use https://search.nixos.org/ to find more packages (and options).
   environment.systemPackages = with pkgs; [
     vim     
+    unzip
     vscodium
     pavucontrol
     wget
@@ -148,6 +195,7 @@
     dpkg
     telegram-desktop
     wl-clipboard
+    htop
     cliphist
     anki-bin
     hyprlock
@@ -172,6 +220,11 @@
     tcpdump
     home-manager
     xhost
+    wireguard-tools
+    lsof
+    xray
+    sing-box
+    v2rayn
   ];
 
   programs.steam = {
@@ -180,7 +233,7 @@
   programs.appimage.enable = true;
   programs.appimage.package = pkgs.appimage-run.override {
     extraPkgs = pkgs: [
-      # missing libraries here, e.g.: `pkgs.libepoxy`
+      pkgs.libepoxy
     ];
   };
   programs.appimage.binfmt = true;
