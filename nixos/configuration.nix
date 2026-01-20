@@ -47,6 +47,13 @@
   environment.systemPackages = with pkgs; [
   ];
 
+  nix.optimise.automatic = true;
+  nix.settings.auto-optimise-store = true;
+  nix.gc = {
+    automatic = true; 
+    dates = "weekly";
+  };
+
   system.stateVersion = "25.11";
 }
 
