@@ -2,7 +2,6 @@
   description = "NixOS configuration";
 
   inputs = {
-    # happ.url = "path:/home/eugene/test-happ";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.11";
     home-manager = {
@@ -21,19 +20,6 @@
       inherit system;
       specialArgs = { inherit inputs; };
       modules = [
-        # ({ config, pkgs, ... }: {
-        #   nixpkgs.config.allowUnfree = true;
-        #   nixpkgs.overlays = [
-        #     (final: prev: {
-        #       happ = inputs.happ.packages.${system}.default;
-        #     })
-        #   ];
-        # })
-        # happ.nixosModules.happd
-        # ({ pkgs, ... }: {
-        #   services.happd.enable = true;
-        #   # services.happd.extraArgs = [ "--some-flag" ];
-        # }) 
         ./configuration.nix
         home-manager.nixosModules.home-manager
         {
@@ -48,7 +34,6 @@
         }
       ];
     };
-    
     homeConfigurations."${user}" = home-manager.lib.homeManagerConfiguration {
       pkgs = nixpkgs.legacyPackages.${system};
       extraSpecialArgs = {

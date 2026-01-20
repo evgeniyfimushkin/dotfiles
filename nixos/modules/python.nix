@@ -1,6 +1,9 @@
 { config, lib, pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
-    cmatrix
+    (python3.withPackages (ps: with ps; [
+      requests
+      flask
+    ]))
   ];
 }
