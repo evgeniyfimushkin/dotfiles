@@ -5,3 +5,5 @@
 *.swp
 install.sh
 systemd
+.pre-commit-config.yaml
+

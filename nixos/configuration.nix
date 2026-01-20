@@ -8,6 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./modules/cmatrix.nix
     ];
 
   nixpkgs.config.allowUnfree = true;
@@ -34,10 +35,6 @@
   };
 
   # networking.hostName = "nixos"; # Define your hostname.
-    systemd.targets.sleep.enable = false;
-  systemd.targets.suspend.enable = false;
-  systemd.targets.hibernate.enable = false;
-  systemd.targets.hybrid-sleep.enable = false;
   # Configure network connections interactively with nmcli or nmtui.
   networking.networkmanager.enable = true;
   networking.extraHosts = ''
@@ -58,7 +55,12 @@
   '';
   # Set your time zone.
   time.timeZone = "Asia/Novosibirsk";
-
+      services.logind = {
+    lidSwitch = "ignore"; # или "lock" для блокировки экрана без сна
+    lidSwitchExternalPower = "ignore";
+    lidSwitchDocked = "ignore";
+    
+  };
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
@@ -209,23 +211,26 @@
     blueman
     playerctl
     mpv
-    thunar
     (python3.withPackages (subpkgs: with subpkgs; [ requests ]))
+    pre-commit
     obsidian
     networkmanagerapplet
     brightnessctl
     webcord
     teamspeak6-client
     wireshark
+    traceroute
     tcpdump
-    home-manager
     xhost
     wireguard-tools
     lsof
     xray
     sing-box
     v2rayn
+    gitleaks
   ];
+  programs.xfconf.enable = true;
+  programs.thunar.enable = true;
 
   programs.steam = {
     enable = true;
@@ -254,7 +259,7 @@
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  networking.firewall.enable = false;
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you

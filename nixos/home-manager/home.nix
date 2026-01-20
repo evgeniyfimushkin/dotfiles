@@ -10,7 +10,10 @@
     packages = with pkgs; [
         btop
         vscodium
+        foliate
     ];
+
+
     # pointerCursor = {
     #   # package = pkgs.vanilla-dmz;
     #   # name = "Vanilla-DMZ";
@@ -24,6 +27,7 @@
     #   };
     # };
   };
+
   gtk = {
     enable = true;
     theme = {
@@ -46,6 +50,9 @@
       package = pkgs.catppuccin-cursors.mochaDark;
     };
     gtk3 = {
+      extraConfig.gtk-application-prefer-dark-theme = true;
+    };    
+    gtk4 = {
       extraConfig.gtk-application-prefer-dark-theme = true;
     };
   };
@@ -76,6 +83,7 @@
       name = "kvantum";
     };
   };
+
 
   xdg.configFile."Kvantum/kvantum.kvconfig".source = (pkgs.formats.ini { }).generate "kvantum.kvconfig" {
     General.theme = "Catppuccin-Mocha-Blue";
