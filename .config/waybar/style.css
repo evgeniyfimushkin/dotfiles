@@ -1,9 +1,19 @@
-@define-color main #CBA6F7;
-@define-color main-background #1E1E2E;
+@define-color main #FABD2F;                /* основной акцент — яркий жёлтый */
+@define-color main-background #282828;     /* тёмный фон */
+@define-color urgent #8EC07C;              /* мягкий зелёный для уведомлений вместо красного */
+@define-color focused #83A598;             /* голубовато-зелёный для активного workspace */
+@define-color hover-bg #3C3836;            /* тёмный серый/коричневый для hover эффектов */
+@define-color secondary #B8BB26;           /* зелёный для второстепенных элементов */
+@define-color warning #FE8019;             /* оранжевый для предупреждений */
+@define-color critical #FB4934;            /* красный только для критичных событий */
+@define-color info #83A598;                /* голубовато-зелёный для информационных элементов */
+@define-color muted #665C54;               /* тёмный серый для неактивных/приглушённых элементов */
+@define-color tray-attention #8EC07C;      /* мягкий зелёный для элементов трей */
+@define-color privacy-screen #D65D0E;      /* оранжевый для экранной активности */
+@define-color privacy-audio-out #458588;   /* синий/бирюзовый для аудиовыхода */
+
 
 * {
-    /* `otf-font-awesome` is required to be installed for icons */
-    /* font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif; */
     font-family: "JetBrains Mono", Roboto, Helvetica, Arial, sans-serif;
     font-size: 15px;
     font-weight: 500;
@@ -11,12 +21,11 @@
 
 window#waybar {
     background-color: @main-background;
-    border-bottom: 1px solid rgba(100, 114, 125, 0.5);
+    border-bottom: 1px solid @muted;
     color: @main;
     transition-property: background-color;
     transition-duration: .5s;
-    /* border-radius: 20; */
-    padding: 0; /* Убраны внутренние отступы контейнера */
+    padding: 0;
     margin: 0;
 }
 
@@ -24,82 +33,61 @@ window#waybar.hidden {
     opacity: 0.2;
 }
 
-/*
-window#waybar.empty {
-    background-color: transparent;
-}
-window#waybar.solo {
-    background-color: #FFFFFF;
-}
-*/
-
 window#waybar.termite {
-    background-color: brown;
+    background-color: @secondary;
 }
 
 window#waybar.chromium {
-    background-color: #000000;
+    background-color: @main-background;
     border: none;
 }
 
 button {
-    /* Use box-shadow instead of border so the text isn't offset */
     box-shadow: inset 0 -3px transparent;
-    /* Avoid rounded borders under each button name */
     border: none;
     border-radius: 0;
-    padding: 0; /* Убраны отступы у кнопок */
+    padding: 0;
     margin: 0;
 }
 
-/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 button:hover {
-    background: inherit;
-    /* box-shadow: inset 0 -3px @main; */
-}
-
-/* you can set a style on hover for any module like this */
-#pulseaudio:hover {
+    background: @hover-bg;
 }
 
 #workspaces button {
     margin-left: 1px;
     margin-top: 0;
     margin-bottom: 0;
-    padding: 0 8px; /* Уменьшены горизонтальные отступы */
+    padding: 0 8px;
     background-color: transparent;
-    color: #ae90f5;
+    color: @secondary;
 }
 
 #workspaces button:hover {
-    background: rgba(0, 0, 0, 0.2);
+    background: @hover-bg;
 }
 
 #workspaces button.focused {
-    background-color: #96c7ff;
-    /* box-shadow: inset 0 -3px #ffffff; */
-    color:#ffffff;
+    background-color: @focused;
+    color: @main-background;
 }
 
-#workspaces button.active{
+#workspaces button.active {
     background-color: @main;
-    /* box-shadow: inset 0 -3px #ffffff; */
     color: @main-background;
-    /* border-radius: 5; */
 }
 
 #workspaces button.urgent {
-    background-color: #4bb0eb;
+    background-color: @urgent;
     color: @main-background;
 }
 
 #workspaces button.urgent:hover {
     background-color: @main;
-    background-color: @main;
 }
 
 #mode {
-    background-color: #64727D;
+    background-color: @muted;
     box-shadow: inset 0 -3px @main;
 }
 
@@ -120,9 +108,7 @@ button:hover {
 #scratchpad,
 #power-profiles-daemon,
 #mpd {
-    /* border-radius: 10%; 
-    background-color: rgba(20, 120, 160, 0.6);  */
-    padding: 1px 6px; /* Уменьшено с 5px 10px */
+    padding: 1px 6px;
     margin: 0;
     color: @main;
 }
@@ -146,54 +132,35 @@ button:hover {
 #keyboard-state:hover,
 #language:hover,
 #mpd:hover {
-    /* padding: 10px 20px; */
-    padding: 1px 6px; /* Такие же отступы как в обычном состоянии */
-    color:  @main;
+    padding: 1px 6px;
+    color: @main;
     transition: .2s;
     box-shadow: inset 0 -3px @main;
 }
 
 #window,
 #workspaces {
-    margin: 0 2px; /* Уменьшены отступы */
-    /* border-radius: 20; */
+    margin: 0 2px;
 }
 
-/* If workspaces is the leftmost module, omit left margin */
 .modules-left > widget:first-child > #workspaces {
     margin-left: 0;
 }
 
-/* If workspaces is the rightmost module, omit right margin */
 .modules-right > widget:last-child > #workspaces {
     margin-right: 0;
 }
 
-/* #clock {
-    background-color: #64727D;
-}
-
-#battery {
-    background-color: #ffffff;
-    color: #000000;
-} */
-
-/* #battery.charging, #battery.plugged {
-    color: #ffffff;
-    background-color: #26A65B;
-} */
-
 @keyframes blink {
     to {
-        background-color: #ffffff;
-        color: #000000;
+        background-color: @main-background;
+        color: @main;
     }
 }
 
-/* Using steps() instead of linear as a timing function to limit cpu usage */
 #battery.critical:not(.charging) {
-    background-color: #f53c3c;
-    color: #ffffff;
+    background-color: @critical;
+    color: @main-background;
     animation-name: blink;
     animation-duration: 0.5s;
     animation-timing-function: steps(12);
@@ -202,102 +169,30 @@ button:hover {
 }
 
 #power-profiles-daemon {
-    padding-right: 8px; /* Уменьшено с 15px */
+    padding-right: 8px;
 }
 
 #power-profiles-daemon.performance {
-    background-color: #f53c3c;
-    color: #ffffff;
+    background-color: @critical;
+    color: @main-background;
 }
 
 #power-profiles-daemon.balanced {
-    background-color: #2980b9;
-    color: #ffffff;
+    background-color: @info;
+    color: @main-background;
 }
-/* 
-#power-profiles-daemon.power-saver {
-    background-color: #2ecc71;
-    color: #000000;
-} */
 
 label:focus {
-    background-color: #000000;
+    background-color: @main-background;
 }
-
-/* #cpu {
-    background-color: #2ecc71;
-    color: #000000;
-} */
-/* }
-
-#memory {
-    background-color: #9b59b6;
-}
-
-#disk {
-    background-color: #964B00;
-}
-
-#backlight {
-    background-color: #90b1b1;
-}
-
-#network {
-    background-color: #2980b9;
-}
-
-#network.disconnected {
-    background-color: #f53c3c;
-} */
-
-/* #pulseaudio {
-    background-color: #f1c40f;
-    color: #000000;
-}
-
-#pulseaudio.muted {
-    background-color: #90b1b1;
-    color: #2a5c45;
-}
-
-#wireplumber {
-    background-color: #fff0f5;
-    color: #000000;
-} */
 
 #wireplumber.muted {
-    background-color: #f53c3c;
-}
-
-/* #custom-media {
-    background-color: #66cc99;
-    color: #2a5c45;
-    min-width: 100px;
-} */
-/* 
-#custom-media.custom-spotify {
-    background-color: #66cc99;
-}
-
-#custom-media.custom-vlc {
-    background-color: #ffa000;
-}
-
-#temperature {
-    background-color: #f0932b;
-}
-
-#temperature.critical {
-    background-color: #eb4d4b;
+    background-color: @critical;
 }
 
 #tray {
-    background-color: #2980b9;
-} */
-
-#tray {
-    margin-right: 4px; /* Уменьшено с 10px */
-} 
+    margin-right: 4px;
+}
 
 #tray > .passive {
     -gtk-icon-effect: dim;
@@ -305,65 +200,15 @@ label:focus {
 
 #tray > .needs-attention {
     -gtk-icon-effect: highlight;
-    background-color: #eb4d4b;
-}
-
-/* #idle_inhibitor {
-    background-color: #2d3436;
-} */
-/* 
-#idle_inhibitor.activated {
-    background-color: #ecf0f1;
-    color: #2d3436;
-} */
-
-/* #mpd {
-    background-color: #66cc99;
-    color: #2a5c45;
-}
-
-#mpd.disconnected {
-    background-color: #f53c3c;
-}
-
-#mpd.stopped {
-    background-color: #90b1b1;
-}
-
-#mpd.paused {
-    background-color: #51a37a;
-} */
-
-/* #language {
-    background: #00b093;
-    color: #740864;
-    padding: 0 5px;
-    margin: 0 5px;
-    min-width: 16px;
-} */
-
-/* #keyboard-state {
-    background: #97e1ad;
-    color: #000000;
-    padding: 0 0px;
-    margin: 0 5px;
-    min-width: 16px;
-} */
-
-#keyboard-state > label {
-    padding: 0 3px; /* Уменьшено с 5px */
-}
-
-#keyboard-state > label.locked {
-    background: rgba(28, 189, 201, 0.5);
+    background-color: @tray-attention;
 }
 
 #scratchpad {
-    background: rgba(0, 0, 0, 0.2);
+    background: @hover-bg;
 }
 
 #scratchpad.empty {
-	background-color: transparent;
+    background-color: transparent;
 }
 
 #privacy {
@@ -371,31 +216,34 @@ label:focus {
 }
 
 #privacy-item {
-    padding: 0 3px; /* Уменьшено с 5px */
-    color: white;
+    padding: 0 3px;
+    color: @main-background;
 }
 
 #privacy-item.screenshare {
-    background-color: #cf5700;
+    background-color: @privacy-screen;
 }
 
-/* #privacy-item.audio-in {
-    background-color: #1ca000;
-} */
-
 #privacy-item.audio-out {
-    background-color: #0069d4;
+    background-color: @privacy-audio-out;
 }
 
 #custom-notifications {
-  background-color: rgba(0, 0, 0, 0.7);
-  color: white;
-  font-size: 14px;
-  padding: 2px 4px; /* Уменьшено с 5px */
+    background-color: rgba(0, 0, 0, 0.7);
+    color: @main-background;
+    font-size: 14px;
+    padding: 2px 4px;
 }
 
-/* Добавлен класс для всех модулей для единообразия */
 .module {
     padding: 2px 6px;
     margin: 0;
+}
+
+#keyboard-state > label {
+    padding: 0 3px;
+}
+
+#keyboard-state > label.locked {
+    background: rgba(28, 189, 201, 0.5);
 }

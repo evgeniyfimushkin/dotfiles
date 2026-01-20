@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 
 let
-  myTheme = "Catppuccin-Mocha-Standard-Blue-Dark";
+  myTheme = "Gruvbox-Dark";
 in
 {
   imports = [ ];
@@ -10,8 +10,7 @@ in
     username = "eugene";
     homeDirectory = "/home/eugene";
     stateVersion = "25.11";
-    sessionVariables = {
-    };
+    sessionVariables = {};
     packages = with pkgs; [
         btop
     ];
@@ -21,18 +20,11 @@ in
     enable = true;
     theme = {
       name = myTheme;
-      package = pkgs.catppuccin-gtk.override {
-        accents = [ "blue" ];
-        size = "standard";
-        variant = "mocha";
-      };
+      package = pkgs.gruvbox-gtk-theme; 
     };
     iconTheme = {
       name = "Papirus-Dark";
-      package = pkgs.catppuccin-papirus-folders.override {
-        flavor = "mocha";
-        accent = "blue";
-      };
+      package = pkgs.papirus-icon-theme;
     };
     cursorTheme = {
       name = "Catppuccin-Mocha-Dark-Cursors";
@@ -42,7 +34,7 @@ in
     gtk4.extraConfig.gtk-application-prefer-dark-theme = true;
   };
 
-  # Common theme on hyprland
+  # Common theme for Hyprland / GNOME apps
   dconf.settings = {
     "org/gnome/desktop/interface" = {
       gtk-theme = myTheme;
@@ -64,5 +56,4 @@ in
   xdg.configFile."Kvantum/kvantum.kvconfig".source = (pkgs.formats.ini { }).generate "kvantum.kvconfig" {
     General.theme = myTheme;
   };
-
 }

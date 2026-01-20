@@ -5,5 +5,6 @@
 *.swp
 install.sh
 systemd
+nixos
 .pre-commit-config.yaml
-
+README.me
