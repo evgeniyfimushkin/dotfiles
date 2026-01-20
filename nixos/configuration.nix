@@ -14,6 +14,7 @@
       ./modules/zsh.nix
       ./modules/cli.nix
       ./modules/gui.nix
+      ./modules/vscodium.nix
       ./modules/python.nix
       ./modules/flatpak.nix
     ];

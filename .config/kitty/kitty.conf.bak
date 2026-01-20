@@ -1,10 +1,20 @@
 #bell_off
 enable_audio_bell no
-include ~/.config/kitty/BirdsOfParadise.conf
-font_size 14
+#include ~/.config/kitty/BirdsOfParadise.conf
+font_family JetBrains Mono Nerd Font
+font_size 13
+enable_ligatures no
+confirm_exit no
+
+enabled_layouts vertical, grid, horizontal
+
+
 #map alt+shift+j next_window
 #map alt+shift+k previous_window
 
+
+map alt+s new_window
+map alt+t new_tab
 map alt+j next_window
 map alt+k previous_window
 map alt+h previous_tab
@@ -20,8 +30,10 @@ map alt+o next_layout
 
 map alt+c copy_to_clipboard
 map alt+v paste_from_clipboard
-# active_border_color #ff9f00
-# inactive_border_color #5c6370
+map ctrl+shift+с copy_to_clipboard
+map ctrl+shift+м paste_from_clipboard
+active_border_color #ff9f00
+inactive_border_color #5c6370
 window_border_width 2
 
 paste_actions quote-urls-at-prompt
@@ -45,6 +57,6 @@ map alt+w close_window
 
 
 # BEGIN_KITTY_THEME
-# Birds Of Paradise
+# Neopolitan
 include current-theme.conf
 # END_KITTY_THEME

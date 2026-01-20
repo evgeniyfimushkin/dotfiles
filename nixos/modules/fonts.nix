@@ -1,10 +1,10 @@
 { config, lib, pkgs, ... }:
 {
   # i18n.defaultLocale = "en_US.UTF-8";
-  console = {
-    font = "cyr-sun16";
-    useXkbConfig = true; # use xkb.options in tty.
-  };
+  # console = {
+  #   font = "cyr-sun16";
+  #   useXkbConfig = true; # use xkb.options in tty.
+  # };
 
   fonts = {
     packages = with pkgs; [

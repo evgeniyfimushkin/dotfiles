@@ -1,7 +1,6 @@
 { config, lib, pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
-    vscodium
     telegram-desktop
     anki-bin
     obsidian

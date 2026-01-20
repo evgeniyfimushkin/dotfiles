@@ -15,5 +15,7 @@
     kubecolor
     terraform
     ansible
+    yq
+    jq
   ];
 }
