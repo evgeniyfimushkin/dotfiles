@@ -17,6 +17,7 @@
       ./modules/vscodium.nix
       ./modules/python.nix
       ./modules/flatpak.nix
+      # ./modules/wine.nix
     ];
 
   time.timeZone = "Asia/Novosibirsk";
