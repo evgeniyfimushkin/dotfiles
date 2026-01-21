@@ -2,6 +2,8 @@
     "editor.fontLigatures": false,
     "editor.fontFamily": "'JetBrains Mono', 'monospace', monospace",
     "editor.fontSize": 15,
-    "files.refactoring.autoSave": false
+    "files.refactoring.autoSave": false,
+    "workbench.colorTheme": "Gruvbox Dark Hard",
+    "redhat.telemetry.enabled": true
 }
 // ->

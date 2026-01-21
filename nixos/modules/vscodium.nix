@@ -20,6 +20,7 @@
         eamodio.gitlens
         gitlab.gitlab-workflow
         github.vscode-github-actions
+        jdinhlife.gruvbox
       ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
         {
           name = "remote-ssh-edit";

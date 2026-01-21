@@ -8,6 +8,7 @@
     teamspeak6-client
     libreoffice-qt
     foliate
+    google-chrome
   ];  
 
   programs = {
@@ -16,4 +17,5 @@
     thunar.enable = true;
     steam.enable = true;
   };
+
 }

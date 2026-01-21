@@ -17,5 +17,8 @@
     ansible
     yq
     jq
+    openssl
+    dnsutils
+    whois
   ];
 }
