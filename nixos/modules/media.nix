@@ -4,6 +4,7 @@
     pavucontrol
     playerctl
     mpv
+    qimgv
   ];
 
   services.pipewire = {
