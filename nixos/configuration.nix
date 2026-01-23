@@ -48,9 +48,9 @@
   environment.systemPackages = with pkgs; [
   ];
 
-  systemd.tmpfiles.rules = [
-    "L /run/containerd/containerd.sock - - - - /run/docker/containerd/containerd.sock"
-  ];
+  # systemd.tmpfiles.rules = [
+  #   "L /run/containerd/containerd.sock - - - - /run/docker/containerd/containerd.sock"
+  # ];
 
 
   nix.optimise.automatic = true;

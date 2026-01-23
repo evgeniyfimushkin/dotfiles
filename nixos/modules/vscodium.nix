@@ -22,6 +22,7 @@
         github.vscode-github-actions
         jdinhlife.gruvbox
         samuelcolvin.jinjahtml
+        humao.rest-client
       ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
         {
           name = "remote-ssh-edit";
@@ -29,12 +30,7 @@
           version = "0.47.2";
           sha256 = "1hp6gjh4xp2m1xlm1jsdzxw9d8frkiidhph6nvl24d0h8z34w49g";
         }
-        {
-          name = "vscode-thunder-client";
-          publisher = "rangav";
-          version = "2.38.6"; 
-          sha256 = "8joP2BzTuUWS0XnpHonoClrfOw03pj2Bs+q9At7LtyI=";
-        }
+        
       ];
     })
 
