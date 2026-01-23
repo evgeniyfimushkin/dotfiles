@@ -21,6 +21,7 @@
         gitlab.gitlab-workflow
         github.vscode-github-actions
         jdinhlife.gruvbox
+        samuelcolvin.jinjahtml
       ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
         {
           name = "remote-ssh-edit";
