@@ -4,7 +4,8 @@
     pavucontrol
     playerctl
     mpv
-    qimgv
+    qimgv # photo viewer
+    vlc
   ];
 
   services.pipewire = {

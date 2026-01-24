@@ -19,6 +19,7 @@
     slurp # for screenshot
     waybar
     mako
+    libnotify
     kitty
     wofi
     fastfetch # for flex

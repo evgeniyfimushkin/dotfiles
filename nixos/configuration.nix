@@ -53,13 +53,18 @@
   # ];
 
 
+  system.autoUpgrade.enable = true;
+  system.autoUpgrade.dates = "weekly";
+
   nix.optimise.automatic = true;
   nix.settings.auto-optimise-store = true;
   nix.gc = {
     automatic = true; 
-    dates = "weekly";
+    dates = "daily";
+    options = "--delete-older-than 10d";
   };
 
+  services.udisks2.enable = true;
   system.stateVersion = "25.11";
 }
 

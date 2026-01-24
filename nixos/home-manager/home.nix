@@ -56,4 +56,16 @@ in
   xdg.configFile."Kvantum/kvantum.kvconfig".source = (pkgs.formats.ini { }).generate "kvantum.kvconfig" {
     General.theme = myTheme;
   };
+
+  services.udiskie = {
+      enable = true;
+      settings = {
+          # workaround for
+          # https://github.com/nix-community/home-manager/issues/632
+          program_options = {
+              file_manager = "${pkgs.xfce.thunar}/bin/thunar";
+          };
+      };
+  };
+
 }

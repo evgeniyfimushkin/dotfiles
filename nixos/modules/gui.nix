@@ -9,6 +9,8 @@
     libreoffice-qt
     foliate
     google-chrome
+    transmission_4-gtk
+    vlc
   ];  
 
   programs = {
