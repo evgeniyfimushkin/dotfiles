@@ -5,12 +5,11 @@
     anki-bin
     obsidian
     webcord
+    discord
     teamspeak6-client
     libreoffice-qt
-    foliate
     google-chrome
     transmission_4-gtk
-    vlc
   ];  
 
   programs = {

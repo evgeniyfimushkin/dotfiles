@@ -18,6 +18,7 @@
       ./modules/python.nix
       ./modules/flatpak.nix
       # ./modules/wine.nix
+      # ./modules/kde.nix
     ];
 
   time.timeZone = "Asia/Novosibirsk";

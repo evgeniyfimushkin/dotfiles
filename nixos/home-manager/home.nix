@@ -48,6 +48,7 @@ in
   qt = {
     enable = true;
     platformTheme = "qtct";  
+    # platformTheme = "kde";  
     style = {
       name = "kvantum";
     };

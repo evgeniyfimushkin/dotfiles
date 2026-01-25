@@ -20,5 +20,6 @@
     openssl
     dnsutils
     whois
+    pstree
   ];
 }

@@ -2,9 +2,10 @@
 .gitignore
 .gitconfig
 .zshrc.d/keys.zsh
-*.swp
+\.swp$
 install.sh
 systemd
 nixos
 .pre-commit-config.yaml
-README.me
+README.md
+
