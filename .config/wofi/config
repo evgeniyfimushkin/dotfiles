@@ -1,4 +1,4 @@
 allow_images=true
 image_size=25
-normal_window=true
+#normal_window=true
 no_actions=true

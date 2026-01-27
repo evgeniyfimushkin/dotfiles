@@ -4,6 +4,7 @@
     "editor.fontSize": 15,
     "files.refactoring.autoSave": false,
     "workbench.colorTheme": "Gruvbox Dark Hard",
-    "redhat.telemetry.enabled": true
+    "redhat.telemetry.enabled": true,
+    "terminal.integrated.enableMultiLinePasteWarning": "never"
 }
 // ->
