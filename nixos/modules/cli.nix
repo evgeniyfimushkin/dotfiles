@@ -21,5 +21,7 @@
     dnsutils
     whois
     pstree
+    mlocate
+    tree
   ];
 }

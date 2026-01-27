@@ -1,7 +1,8 @@
 { config, lib, pkgs, ... }:
 
 let
-  myTheme = "Gruvbox-Dark";
+  # myTheme = "Gruvbox-Dark";
+  myTheme = "Gruvbox-Light";
 in
 {
   imports = [ ];
