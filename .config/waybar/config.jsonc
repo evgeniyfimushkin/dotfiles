@@ -18,6 +18,7 @@
         "pulseaudio",
         "cpu",
         "memory",
+        "custom/containers",
         "temperature",
         "network",
     ],
@@ -220,7 +221,12 @@
     },
     "custom/split": {
         "format": "|"
+    },
+    "custom/containers": {
+        "exec": "echo cnt:$(docker ps -q | wc -l)",
+        "interval": 2
     }
+
     // "custom/notifications": {
     //     "exec": "makoctl menu tail",
     //     "interval": 1
