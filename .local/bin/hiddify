@@ -1,0 +1,4 @@
+#!/bin/sh
+sudo exit 2> /dev/null
+sudo nohup appimage-run ~/.local/bin/Hiddify-Linux-x64.AppImage > /dev/null &> /dev/null &
+exit
