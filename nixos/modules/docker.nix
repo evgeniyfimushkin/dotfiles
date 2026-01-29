@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 {
   virtualisation = {
     docker = {
@@ -10,5 +15,5 @@
     docker-compose
     docker-buildx
   ];
-  users.groups.docker = {};
+  users.groups.docker = { };
 }

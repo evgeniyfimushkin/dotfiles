@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 {
   environment.systemPackages = with pkgs; [
     telegram-desktop
@@ -11,13 +16,24 @@
     transmission_4-gtk
     gimp
     foliate
-  ];  
+  ];
 
   programs = {
-    firefox.enable = true;  
+    firefox.enable = true;
     xfconf.enable = true;
     thunar.enable = true;
     steam.enable = true;
+    obs-studio = {
+      enable = true;
+      plugins = with pkgs.obs-studio-plugins; [
+        wlrobs
+        obs-backgroundremoval
+        obs-pipewire-audio-capture
+        obs-vaapi # optional AMD hardware acceleration
+        obs-gstreamer
+        obs-vkcapture
+      ];
+    };
   };
 
 }

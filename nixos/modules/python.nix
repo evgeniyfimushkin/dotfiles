@@ -1,9 +1,16 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 {
   environment.systemPackages = with pkgs; [
-    (python3.withPackages (ps: with ps; [
-      requests
-      flask
-    ]))
+    (python3.withPackages (
+      ps: with ps; [
+        requests
+        flask
+      ]
+    ))
   ];
 }
