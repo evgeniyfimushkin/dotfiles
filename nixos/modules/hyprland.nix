@@ -1,12 +1,17 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
   programs.hyprland = {
-	  enable = true;
-	  package = pkgs.hyprland;
+    enable = true;
+    package = pkgs.hyprland;
     xwayland.enable = true;
   };
-  
+
   environment.systemPackages = with pkgs; [
     hyprlock
     hyprlock

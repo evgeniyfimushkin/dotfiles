@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 {
   environment.systemPackages = with pkgs; [
     steam-run
@@ -10,7 +15,6 @@
       pkgs.libepoxy
     ];
   };
-
 
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [

@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 let
   # myTheme = "Gruvbox-Dark";
@@ -11,9 +16,9 @@ in
     username = "eugene";
     homeDirectory = "/home/eugene";
     stateVersion = "25.11";
-    sessionVariables = {};
+    sessionVariables = { };
     packages = with pkgs; [
-        btop
+      btop
     ];
   };
 
@@ -21,7 +26,7 @@ in
     enable = true;
     theme = {
       name = myTheme;
-      package = pkgs.gruvbox-gtk-theme; 
+      package = pkgs.gruvbox-gtk-theme;
     };
     iconTheme = {
       name = "Papirus-Dark";
@@ -48,26 +53,28 @@ in
 
   qt = {
     enable = true;
-    platformTheme = "qtct";  
-    # platformTheme = "kde";  
+    platformTheme = "qtct";
+    # platformTheme = "kde";
     style = {
       name = "kvantum";
     };
   };
-  
-  xdg.configFile."Kvantum/kvantum.kvconfig".source = (pkgs.formats.ini { }).generate "kvantum.kvconfig" {
-    General.theme = myTheme;
-  };
+
+  xdg.configFile."Kvantum/kvantum.kvconfig".source =
+    (pkgs.formats.ini { }).generate "kvantum.kvconfig"
+      {
+        General.theme = myTheme;
+      };
 
   services.udiskie = {
-      enable = true;
-      settings = {
-          # workaround for
-          # https://github.com/nix-community/home-manager/issues/632
-          program_options = {
-              file_manager = "${pkgs.xfce.thunar}/bin/thunar";
-          };
+    enable = true;
+    settings = {
+      # workaround for
+      # https://github.com/nix-community/home-manager/issues/632
+      program_options = {
+        file_manager = "${pkgs.xfce.thunar}/bin/thunar";
       };
+    };
   };
 
 }

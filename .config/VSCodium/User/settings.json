@@ -5,6 +5,24 @@
     "files.refactoring.autoSave": false,
     "workbench.colorTheme": "Gruvbox Dark Hard",
     "redhat.telemetry.enabled": true,
-    "terminal.integrated.enableMultiLinePasteWarning": "never"
+    "terminal.integrated.enableMultiLinePasteWarning": "never",
+    "roo-cline.allowedCommands": ["git log", "git diff", "git show"],
+    "roo-cline.deniedCommands": [],
+    "[css]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "prettier.printWidth": 120,
+    "prettier.tabWidth": 4,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "[nix]": {
+        "editor.defaultFormatter": "jnoortheen.nix-ide"
+    }
 }
 // ->

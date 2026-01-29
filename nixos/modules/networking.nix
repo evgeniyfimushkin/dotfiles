@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 {
   environment.systemPackages = with pkgs; [
     cmatrix
@@ -6,6 +11,7 @@
     networkmanagerapplet
     traceroute
     tcpdump
+    inetutils
     lsof
     xray
     sing-box
@@ -13,11 +19,17 @@
     wireshark
   ];
   nixpkgs.config.allowUnfree = true;
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelModules = [ "tcp_bbr" "tun" ];
+  boot.kernelModules = [
+    "tcp_bbr"
+    "tun"
+  ];
   boot.kernel.sysctl = {
     # turn this shit faster
     "net.ipv4.tcp_congestion_control" = "bbr";
@@ -25,7 +37,7 @@
     "net.ipv4.ip_forward" = 1;
     "net.ipv6.conf.all.forwarding" = 1;
     "net.ipv6.conf.default.forwarding" = 1;
-    
+
     "net.core.default_qdisc" = "fq";
     "net.ipv4.tcp_notsent_lowat" = 16384;
     "net.ipv4.conf.all.rp_filter" = 0;

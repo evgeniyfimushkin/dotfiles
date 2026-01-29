@@ -23,5 +23,6 @@
     pstree
     mlocate
     tree
+    nixfmt
   ];
 }
