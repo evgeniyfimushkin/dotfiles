@@ -11,6 +11,7 @@
     mpv
     qimgv # photo viewer
     vlc
+    ffmpeg
   ];
 
   services.pipewire = {

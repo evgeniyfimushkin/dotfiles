@@ -19,10 +19,20 @@
     },
     "prettier.printWidth": 120,
     "prettier.tabWidth": 4,
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true,
     "[nix]": {
         "editor.defaultFormatter": "jnoortheen.nix-ide"
-    }
+    },
+    "[properties]": {
+        "editor.defaultFormatter": "foxundermoon.shell-format"
+    },
+    "[dockerfile]": {
+        "editor.formatOnSave": false,
+        "editor.defaultFormatter": "ms-azuretools.vscode-docker"
+    },
+    "[shellscript]": {
+        "editor.defaultFormatter": "foxundermoon.shell-format"
+    },
+    "editor.wordWrap": "on",
+    "editor.formatOnSave": true
 }
 // ->

@@ -24,5 +24,7 @@
     mlocate
     tree
     nixfmt
+    p7zip
+    file
   ];
 }
