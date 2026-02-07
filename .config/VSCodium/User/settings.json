@@ -25,14 +25,39 @@
     "[properties]": {
         "editor.defaultFormatter": "foxundermoon.shell-format"
     },
+    "[docker]": {
+        "editor.formatOnSave": false,
+        "editor.defaultFormatter": null
+    },
+    "shellformat.effectLanguages": [
+        "shellscript",
+        // "dockerfile", // Remove me!!
+        "dotenv",
+        "hosts",
+        "jvmoptions",
+        "ignore",
+        "gitignore",
+        "properties",
+        "spring-boot-properties",
+        "azcli",
+        "bats"
+    ],
     "[dockerfile]": {
         "editor.formatOnSave": false,
-        "editor.defaultFormatter": "ms-azuretools.vscode-docker"
+        "editor.defaultFormatter": null
     },
     "[shellscript]": {
         "editor.defaultFormatter": "foxundermoon.shell-format"
     },
     "editor.wordWrap": "on",
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
+    "[html]": {
+        "editor.defaultFormatter": "vscode.html-language-features"
+    },
+    "[dockercompose]": {
+        "editor.defaultFormatter": "redhat.vscode-yaml"
+    },
+    "explorer.confirmPasteNative": false,
+    "explorer.confirmDragAndDrop": false
 }
 // ->

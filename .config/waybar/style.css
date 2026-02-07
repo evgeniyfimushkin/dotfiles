@@ -130,6 +130,7 @@ button:hover {
 #power-profiles-daemon:hover,
 #keyboard-state:hover,
 #language:hover,
+#custom-containers:hover,
 #mpd:hover {
     padding: 1px 6px;
     color: @main;
