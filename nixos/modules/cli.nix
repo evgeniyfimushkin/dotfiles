@@ -26,5 +26,7 @@
     nixfmt
     p7zip
     file
+    unrar
+    zip
   ];
 }

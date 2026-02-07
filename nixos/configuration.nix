@@ -23,6 +23,7 @@
     ./modules/flatpak.nix
     # ./modules/wine.nix
     # ./modules/kde.nix
+    ./modules/tpm.nix
   ];
 
   time.timeZone = "Asia/Novosibirsk";
