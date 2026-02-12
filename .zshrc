@@ -109,4 +109,3 @@ if [[ -d "$ZSHRC_D" ]]; then
     [[ -r "$file" ]] && source "$file"
   done
 fi
-

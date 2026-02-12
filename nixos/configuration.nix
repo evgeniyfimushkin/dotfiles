@@ -24,6 +24,8 @@
     # ./modules/wine.nix
     # ./modules/kde.nix
     ./modules/tpm.nix
+    ./modules/k3s.nix
+    ./modules/battery.nix
   ];
 
   time.timeZone = "Asia/Novosibirsk";
@@ -70,5 +72,6 @@
   };
 
   services.udisks2.enable = true;
+  programs.ssh.startAgent = true;
   system.stateVersion = "25.11";
 }
