@@ -31,5 +31,6 @@
     wl-clipboard
     cliphist
     brightnessctl
+    nwg-displays
   ];
 }
