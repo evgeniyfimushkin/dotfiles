@@ -2,8 +2,6 @@
 
 {
   environment.systemPackages = with pkgs; [
-    vim
-    git
     htop
     unzip
     stow
@@ -30,4 +28,5 @@
     zip
     tmux
   ];
+  programs.git.enable = true;
 }

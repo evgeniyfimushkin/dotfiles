@@ -26,6 +26,7 @@
     ./modules/tpm.nix
     ./modules/k3s.nix
     ./modules/battery.nix
+    ./modules/vim.nix
   ];
 
   time.timeZone = "Asia/Novosibirsk";
