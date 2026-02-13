@@ -10,6 +10,7 @@
     anki-bin
     obsidian
     discord
+    element-desktop
     teamspeak6-client
     libreoffice-qt
     google-chrome
