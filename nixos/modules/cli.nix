@@ -28,5 +28,6 @@
     file
     unrar
     zip
+    tmux
   ];
 }
