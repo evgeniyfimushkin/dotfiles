@@ -58,6 +58,7 @@
         "editor.defaultFormatter": "redhat.vscode-yaml"
     },
     "explorer.confirmPasteNative": false,
-    "explorer.confirmDragAndDrop": false
+    "explorer.confirmDragAndDrop": false,
+    "explorer.confirmDelete": false
 }
 // ->
