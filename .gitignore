@@ -1,2 +1,14 @@
-keys.zsh
+# Vim swap, backup, and history files
 *.swp
+*.swo
+*.bak
+*.tmp
+.netrwhist
+
+# Shell secrets and keys
+keys.zsh
+*.key
+*.pem
+
+# Logs
+*.log
