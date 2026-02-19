@@ -18,14 +18,6 @@
     wireguard-tools
     wireshark
   ];
-  nixpkgs.config.allowUnfree = true;
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
-  # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelModules = [
     "tcp_bbr"
     "tun"
@@ -49,7 +41,7 @@
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-  # networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "nixos";
   networking.networkmanager.enable = true;
   programs.mtr.enable = true;
   # programs.gnupg.agent = {
@@ -63,7 +55,7 @@
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # red flag
-  networking.firewall.enable = false;
+  networking.firewall.enable = true;
 
   networking.extraHosts = ''
     45.155.204.190 chatgpt.com

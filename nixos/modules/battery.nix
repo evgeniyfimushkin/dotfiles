@@ -1,6 +1,13 @@
 { config, pkgs, ... }:
 
 {
+  # for ignoring laptop lid closing
+  services.logind.settings.Login = {
+    HandleLidSwitch = "ignore";
+    HandleLidSwitchExternalPower = "ignore";
+    HandleLidSwitchDocked = "ignore";
+  };
+
   services.thermald.enable = true;
 
   services.tlp = {

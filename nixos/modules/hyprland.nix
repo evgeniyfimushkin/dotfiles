@@ -14,7 +14,6 @@
 
   environment.systemPackages = with pkgs; [
     hyprlock
-    hyprlock
     hyprpaper
     hyprsunset
     hyprpicker

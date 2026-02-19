@@ -53,8 +53,8 @@ in
 
   qt = {
     enable = true;
-    platformTheme = "qtct";
-    # platformTheme = "kde";
+    platformTheme.name = "qtct";
+    # platformTheme.name = "kde";
     style = {
       name = "kvantum";
     };
@@ -72,7 +72,7 @@ in
       # workaround for
       # https://github.com/nix-community/home-manager/issues/632
       program_options = {
-        file_manager = "${pkgs.xfce.thunar}/bin/thunar";
+        file_manager = "${pkgs.thunar}/bin/thunar";
       };
     };
   };
