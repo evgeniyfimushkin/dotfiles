@@ -59,6 +59,9 @@
     },
     "explorer.confirmPasteNative": false,
     "explorer.confirmDragAndDrop": false,
-    "explorer.confirmDelete": false
+    "explorer.confirmDelete": false,
+    "vim.vimrc.enable": true,
+    "vim.vimrc.path": "~/.vim/vimrc",
+    "vim.smartRelativeLine": true
 }
 // ->

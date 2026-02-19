@@ -31,7 +31,7 @@
     ./modules/nixpkgs.nix
     ./modules/printing.nix
     ./modules/python.nix
-    ./modules/ssh.nix
+    ./modules/ssd.nix
     ./modules/tpm.nix
     ./modules/user.nix
     ./modules/vim.nix
