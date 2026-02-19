@@ -2,6 +2,7 @@
 
 {
   environment.systemPackages = with pkgs; [
+    cmatrix
     htop
     unzip
     stow

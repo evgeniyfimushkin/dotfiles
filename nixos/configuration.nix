@@ -25,11 +25,13 @@
     ./modules/keyboard.nix
     ./modules/locale.nix
     ./modules/media.nix
+    ./modules/monitoring.nix
     ./modules/networking.nix
     ./modules/nix.nix
     ./modules/nixpkgs.nix
     ./modules/printing.nix
     ./modules/python.nix
+    ./modules/ssh.nix
     ./modules/tpm.nix
     ./modules/user.nix
     ./modules/vim.nix

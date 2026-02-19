@@ -6,7 +6,6 @@
 }:
 {
   environment.systemPackages = with pkgs; [
-    cmatrix
     wget
     networkmanagerapplet
     traceroute
@@ -43,6 +42,7 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
   networking.hostName = "nixos";
   networking.networkmanager.enable = true;
+  networking.networkmanager.wifi.powersave = true;
   programs.mtr.enable = true;
   # programs.gnupg.agent = {
   #   enable = true;
@@ -55,7 +55,7 @@
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # red flag
-  networking.firewall.enable = true;
+  networking.firewall.enable = false;
 
   networking.extraHosts = ''
     45.155.204.190 chatgpt.com
