@@ -19,6 +19,7 @@
     hyprpicker
     hyprcursor
     hyprshot
+    hypridle
     grim # for screenshot
     slurp # for screenshot
     waybar
