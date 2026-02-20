@@ -16,6 +16,7 @@
     sing-box
     wireguard-tools
     wireshark
+    iperf3
   ];
   boot.kernelModules = [
     "tcp_bbr"
