@@ -15,10 +15,10 @@
   ];
 
   services.flatpak.packages = [
-    # "com.usebottles.bottles"
-    # "net.davidotek.pupgui2"
+    "runtime/org.freedesktop.Platform/x86_64/25.08"
+    "runtime/org.freedesktop.Platform.Locale/x86_64/25.08"
+    "com.usebottles.bottles"
   ];
-
   services.flatpak.uninstallUnmanaged = true;
   services.flatpak.update.onActivation = true;
 }
