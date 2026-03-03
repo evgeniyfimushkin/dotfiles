@@ -11,5 +11,5 @@
     role = "server";
   };
 
-  # systemd.services."k3s".enable = false;
+  systemd.services."k3s".enable = false;
 }

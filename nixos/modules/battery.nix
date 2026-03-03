@@ -41,6 +41,6 @@
   #     turbo = "auto";
   #   };
   # };
-  # powerManagement.enable = true;
+  powerManagement.enable = true;
   # powerManagement.powertop.enable = true;
 }

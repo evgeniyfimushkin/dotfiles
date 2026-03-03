@@ -8,6 +8,8 @@
   system.autoUpgrade.enable = true;
   system.autoUpgrade.dates = "weekly";
 
+  hardware.enableRedistributableFirmware = true;
+
   nix.optimise.automatic = true;
   nix.settings = {
     experimental-features = [

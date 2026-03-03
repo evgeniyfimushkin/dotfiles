@@ -11,6 +11,7 @@
 
     # CLI мониторинг
     sysstat
+    atop
     htop
     btop
 

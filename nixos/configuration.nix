@@ -36,7 +36,7 @@
     ./modules/user.nix
     ./modules/vim.nix
     ./modules/vscodium.nix
-    # ./modules/wine.nix
+    ./modules/wine.nix
     ./modules/zsh.nix
   ];
 

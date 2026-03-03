@@ -45,6 +45,8 @@ in
     ccze # colorize output logs
     my-kubernetes-helm
     my-helmfile
+    mdf2iso
+    fuseiso
   ];
   programs.git.enable = true;
 }

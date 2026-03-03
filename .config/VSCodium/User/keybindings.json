@@ -30,10 +30,6 @@
         "key": "alt+w",
         "command": "workbench.action.terminal.kill"
     },
-    {
-        "key": "alt+w",
-        "command": "workbench.action.closeActiveEditor"
-    },
 
     // === Editor Navigation ===
     {
@@ -124,5 +120,9 @@
         "key": "ctrl+[BracketLeft]",
         "command": "extension.vim_ctrl+c",
         "when": "editorTextFocus && vim.active && vim.overrideCtrlC && vim.use<C-c> && !inDebugRepl"
+    },
+    {
+        "key": "ctrl+w",
+        "command": "workbench.action.closeActiveEditor"
     }
 ]

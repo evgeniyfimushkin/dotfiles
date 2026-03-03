@@ -17,6 +17,7 @@
     transmission_4-gtk
     gimp
     foliate
+    bitwarden-desktop
   ];
 
   programs = {
