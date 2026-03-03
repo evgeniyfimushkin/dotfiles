@@ -25,7 +25,7 @@
     zlib
     fontconfig
     freetype
-    xorg.libX11
+    libx11
     e2fsprogs
     libgpg-error
     glib
