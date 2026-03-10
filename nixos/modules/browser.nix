@@ -44,20 +44,10 @@
             installation_mode = "force_installed";
             install_url = "https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi";
           };
-          # Privacy Badger:
-          "jid1-MnnxcxisBPnSXQ@jetpack" = {
-            install_url = "https://addons.mozilla.org/firefox/downloads/latest/privacy-badger17/latest.xpi";
-            installation_mode = "force_installed";
-          };
           # RuTracker helper
           "rto@rto.rto" = {
             installation_mode = "force_installed";
             install_url = "https://addons.mozilla.org/firefox/downloads/latest/rutracker-add-on/latest.xpi";
-          };
-          # Auto Tab Discard
-          "{c2c003ee-bd69-42a2-b0e9-6f34222cb046}" = {
-            installation_mode = "force_installed";
-            install_url = "https://addons.mozilla.org/firefox/downloads/latest/auto-tab-discard/latest.xpi";
           };
         };
 
