@@ -23,28 +23,40 @@
     let
       system = "x86_64-linux";
       user = "eugene";
+
+      mkHost =
+        {
+          hostname,
+          extraModules ? [ ],
+        }:
+        nixpkgs.lib.nixosSystem {
+          inherit system;
+          specialArgs = { inherit inputs; };
+          modules = [
+            nix-flatpak.nixosModules.nix-flatpak
+            ./hosts/${hostname}/configuration.nix
+            home-manager.nixosModules.home-manager
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                extraSpecialArgs = { inherit inputs; };
+                users.${user} = {
+                  imports = [ ./home-manager/home.nix ] ++ extraModules;
+                };
+              };
+            }
+          ];
+        };
     in
     {
-
-      nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = { inherit inputs; };
-        modules = [
-          nix-flatpak.nixosModules.nix-flatpak
-          ./configuration.nix
-          home-manager.nixosModules.home-manager
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              extraSpecialArgs = { inherit inputs; };
-              users.eugene = {
-                imports = [ ./home-manager/home.nix ];
-              };
-            };
-          }
-        ];
+      nixosConfigurations = {
+        honor = mkHost {
+          hostname = "honor";
+          extraModules = [ ./home-manager/desktop.nix ];
+        };
       };
+
       homeConfigurations."${user}" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.${system};
         extraSpecialArgs = {
