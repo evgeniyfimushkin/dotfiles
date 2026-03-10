@@ -1,14 +1,17 @@
 #!/bin/bash
-HOME=/home/eugene
-OBSIDIAN=$HOME/git/obsidian
-CURRENT_DIR=$(pwd)
+set -e
+
+OBSIDIAN="$HOME/git/obsidian"
 DATE=$(date +"%Y-%m-%d")
 
-git config --global --add safe.directory /home/eugene/git/pc-config
+cd "$OBSIDIAN"
 
-cd $OBSIDIAN
+# Check if there are changes to commit
+if git diff --quiet && git diff --cached --quiet; then
+    echo "No changes to commit"
+    exit 0
+fi
+
 git add .
 git commit -m "Auto-commit: $DATE"
 git push
-
-cd $CURRENT_DIR

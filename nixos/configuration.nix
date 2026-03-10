@@ -30,6 +30,7 @@
     ./modules/networking.nix
     ./modules/nix.nix
     ./modules/nixpkgs.nix
+    ./modules/obsidian-sync.nix
     ./modules/printing.nix
     ./modules/python.nix
     ./modules/ssd.nix
