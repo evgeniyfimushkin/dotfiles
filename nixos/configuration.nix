@@ -12,6 +12,7 @@
     ./modules/battery.nix
     ./modules/bluetooth.nix
     ./modules/boot.nix
+    ./modules/browser.nix
     ./modules/cli.nix
     ./modules/docker.nix
     ./modules/dyn-libs.nix
@@ -36,7 +37,7 @@
     ./modules/user.nix
     ./modules/vim.nix
     ./modules/vscodium.nix
-    ./modules/wine.nix
+    # ./modules/wine.nix
     ./modules/zsh.nix
   ];
 

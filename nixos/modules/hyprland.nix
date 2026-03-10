@@ -32,5 +32,9 @@
     cliphist
     brightnessctl
     nwg-displays
+    #niri
+    niri
+    xwayland-satellite
+    alacritty
   ];
 }

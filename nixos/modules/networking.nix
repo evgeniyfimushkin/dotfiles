@@ -17,6 +17,7 @@
     wireguard-tools
     wireshark
     iperf3
+    # haguichi
   ];
   boot.kernelModules = [
     "tcp_bbr"
@@ -52,12 +53,12 @@
   programs.ssh.startAgent = true;
 
   # services.openssh.enable = true;
-
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # red flag
   networking.firewall.enable = false;
 
+  services.logmein-hamachi.enable = true;
   networking.extraHosts = ''
     45.155.204.190 chatgpt.com
     95.182.120.241 chatgpt.com

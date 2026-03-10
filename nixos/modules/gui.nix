@@ -18,10 +18,10 @@
     gimp
     foliate
     bitwarden-desktop
+    zoom-us
   ];
 
   programs = {
-    firefox.enable = true;
     xfconf.enable = true;
     thunar.enable = true;
     steam.enable = true;
