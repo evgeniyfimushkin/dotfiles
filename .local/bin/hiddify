@@ -1,2 +1,2 @@
 #!/bin/sh
-nohup appimage-run /home/eugene/.local/bin/Hiddify-Linux-x64.AppImage > /dev/null &> /dev/null &
+nohup appimage-run /home/eugene/.local/bin/Hiddify-Linux-x64-AppImage.AppImage > /dev/null &> /dev/null &

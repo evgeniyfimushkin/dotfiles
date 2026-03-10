@@ -13,6 +13,7 @@
   programs.appimage.package = pkgs.appimage-run.override {
     extraPkgs = pkgs: [
       pkgs.libepoxy
+      pkgs.zstd
     ];
   };
 
@@ -23,6 +24,7 @@
     libGL
     libglvnd
     zlib
+    zstd
     fontconfig
     freetype
     libx11
