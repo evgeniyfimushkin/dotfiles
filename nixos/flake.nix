@@ -55,6 +55,9 @@
           hostname = "honor";
           extraModules = [ ./home-manager/desktop.nix ];
         };
+        lab = mkHost {
+          hostname = "lab";
+        };
       };
 
       homeConfigurations."${user}" = home-manager.lib.homeManagerConfiguration {
