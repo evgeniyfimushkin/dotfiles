@@ -36,7 +36,7 @@
         "disable-scroll": true,
         "all-outputs": true,
         "warp-on-scroll": false,
-        "format": "{name}"
+        "format": "{name}",
         // "format": "{name}: {icon}",
         // "format-icons": {
         //     "urgent": "",
@@ -50,18 +50,18 @@
         "format": "{name} {icon}",
         "format-icons": {
             "locked": "",
-            "unlocked": ""
-        }
+            "unlocked": "",
+        },
     },
     "hyprland/mode": {
-        "format": "<span style=\"italic\">{}</span>"
+        "format": "<span style=\"italic\">{}</span>",
     },
     "hyprland/scratchpad": {
         "format": "{icon} {count}",
         "show-empty": false,
         "format-icons": ["", ""],
         "tooltip": true,
-        "tooltip-format": "{app}: {title}"
+        "tooltip-format": "{app}: {title}",
     },
     "mpd": {
         "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
@@ -70,35 +70,35 @@
         "unknown-tag": "N/A",
         "interval": 2,
         "consume-icons": {
-            "on": " "
+            "on": " ",
         },
         "random-icons": {
             "off": "<span color=\"#f53c3c\"></span> ",
-            "on": " "
+            "on": " ",
         },
         "repeat-icons": {
-            "on": " "
+            "on": " ",
         },
         "single-icons": {
-            "on": "1 "
+            "on": "1 ",
         },
         "state-icons": {
             "paused": "",
-            "playing": ""
+            "playing": "",
         },
         "tooltip-format": "MPD (connected)",
-        "tooltip-format-disconnected": "MPD (disconnected)"
+        "tooltip-format-disconnected": "MPD (disconnected)",
     },
     "idle_inhibitor": {
         "format": "{icon}",
         "format-icons": {
             "activated": "",
-            "deactivated": ""
-        }
+            "deactivated": "",
+        },
     },
     "tray": {
         // "icon-size": 21,
-        "spacing": 10
+        "spacing": 10,
         // "icons": {
         //   "blueman": "bluetooth",
         //   "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
@@ -108,16 +108,16 @@
         // "timezone": "America/New_York",
         "format": "{:%a %d %b %H:%M}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": "{:%Y-%m-%d}"
+        "on-click": "taskbar-month-calendar",
     },
     "cpu": {
         "format": "cpu:{usage}%",
         "tooltip": false,
-        "interval": 2
+        "interval": 2,
     },
     "memory": {
         "format": "mem:{}%",
-        "interval": 2
+        "interval": 2,
     },
     "temperature": {
         // "thermal-zone": 2,
@@ -125,18 +125,18 @@
         "critical-threshold": 80,
         // "format-critical": "{temperatureC}°C {icon}",
         "format": "{temperatureC}°C {icon}",
-        "format-icons": ["", "", ""]
+        "format-icons": ["", "", ""],
     },
     "backlight": {
         // "device": "acpi_video1",
         "format": "{percent}% {icon}",
-        "format-icons": ["", "", "", "", "", "", "", "", ""]
+        "format-icons": ["", "", "", "", "", "", "", "", ""],
     },
     "battery": {
         "states": {
             // "good": 95,
             "warning": 30,
-            "critical": 15
+            "critical": 15,
         },
         "format": "{capacity}% {icon}",
         "format-full": "{capacity}% {icon}",
@@ -145,10 +145,10 @@
         "format-alt": "{time} {icon}",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
-        "format-icons": ["", "", "", "", ""]
+        "format-icons": ["", "", "", "", ""],
     },
     "battery#bat2": {
-        "bat": "BAT2"
+        "bat": "BAT2",
     },
     "power-profiles-daemon": {
         "format": "{icon}",
@@ -158,8 +158,8 @@
             "default": "",
             "performance": "",
             "balanced": "",
-            "power-saver": ""
-        }
+            "power-saver": "",
+        },
     },
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
@@ -169,7 +169,7 @@
         "format-linked": "{ifname} (No IP) ",
         "format-disconnected": "Disconnected ⚠",
         "format-alt": "{ifname}: {ipaddr}/{cidr}",
-        "interval": 2
+        "interval": 2,
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
@@ -186,9 +186,9 @@
             "phone": "",
             "portable": "",
             "car": "",
-            "default": ["", "", ""]
+            "default": ["", "", ""],
         },
-        "on-click": "pavucontrol"
+        "on-click": "pavucontrol",
     },
     "custom/media": {
         "format": "{icon} {text}",
@@ -196,10 +196,10 @@
         "max-length": 40,
         "format-icons": {
             "spotify": "",
-            "default": "🎜"
+            "default": "🎜",
         },
         "escape": true,
-        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
+        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null", // Script in resources folder
         // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
     },
     "custom/power": {
@@ -211,16 +211,16 @@
             "shutdown": "shutdown",
             "reboot": "reboot",
             "suspend": "systemctl suspend",
-            "hibernate": "systemctl hibernate"
-        }
+            "hibernate": "systemctl hibernate",
+        },
     },
     "custom/split": {
-        "format": "|"
+        "format": "|",
     },
     "custom/containers": {
         "exec": "echo cnt:$(( $(command -v k3s >/dev/null 2>&1 && k3s kubectl get pods -A | awk '$1!=\"kube-system\" && $1!=\"NAMESPACE\"' | wc -l || echo 0) + $(docker ps -q 2>/dev/null | wc -l) ))",
-        "interval": 2
-    }
+        "interval": 2,
+    },
 
     // "custom/notifications": {
     //     "exec": "makoctl menu tail",
