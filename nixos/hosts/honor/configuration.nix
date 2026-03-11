@@ -20,12 +20,14 @@
     ../../modules/common/networking.nix
     ../../modules/common/nix.nix
     ../../modules/common/nixpkgs.nix
+    ../../modules/common/options.nix
     ../../modules/common/python.nix
     ../../modules/common/shell-compat.nix
     ../../modules/common/ssd.nix
     ../../modules/common/user.nix
     ../../modules/common/vim.nix
     ../../modules/common/zsh.nix
+
     ../../modules/desktop/automount.nix
     ../../modules/desktop/battery.nix
     ../../modules/desktop/bluetooth.nix

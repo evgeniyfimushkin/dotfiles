@@ -20,9 +20,9 @@
       theme = "maran";
     };
     shellAliases = {
-      nrs = "sudo nixos-rebuild switch --flake ~/dotfiles/nixos#${config.networking.hostName} --upgrade";
-      nrb = "sudo nixos-rebuild build --flake ~/dotfiles/nixos#${config.networking.hostName} --upgrade";
-      nrt = "sudo nixos-rebuild test --flake ~/dotfiles/nixos#${config.networking.hostName} --upgrade";
+      nrs = "sudo nixos-rebuild switch --flake ~/dotfiles/nixos#${config.networking.hostName}";
+      nrb = "sudo nixos-rebuild build --flake ~/dotfiles/nixos#${config.networking.hostName}";
+      nrt = "sudo nixos-rebuild test --flake ~/dotfiles/nixos#${config.networking.hostName}";
     };
   };
 }
