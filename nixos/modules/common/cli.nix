@@ -17,6 +17,7 @@ let
 in
 {
   environment.systemPackages = with pkgs; [
+    ydotool
     cmatrix
     unzip
     stow # linking dotfiles
