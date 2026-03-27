@@ -48,6 +48,7 @@ in
     my-helmfile
     mdf2iso
     fuseiso
+    ncdu
   ];
   programs.git.enable = true;
 }
