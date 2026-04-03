@@ -10,4 +10,8 @@
     enable = true;
     role = "server";
   };
+
+  systemd.tmpfiles.rules = [
+    "L+ /home/${config.my.username}/.kube/k3s.yaml - - - - /etc/rancher/k3s/k3s.yaml"
+  ];
 }
