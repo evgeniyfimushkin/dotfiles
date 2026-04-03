@@ -45,6 +45,8 @@
     # ../../modules/desktop/wine.nix
   ];
 
+  my.zshTheme = "maran";
+
   networking.hostName = "honor";
   system.stateVersion = "25.11";
 }

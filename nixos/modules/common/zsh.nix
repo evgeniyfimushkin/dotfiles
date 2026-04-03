@@ -17,7 +17,7 @@
         "docker"
         "sudo"
       ];
-      theme = "maran";
+      theme = config.my.zshTheme;
     };
     shellAliases = {
       nrs = "sudo nixos-rebuild switch --flake ~/dotfiles/nixos#${config.networking.hostName}";

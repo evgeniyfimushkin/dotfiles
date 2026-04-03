@@ -11,13 +11,10 @@
       default = "eugene";
       description = "Main username for the system";
     };
-
-    ssh = {
-      theme = lib.mkOption {
-        type = lib.types.str;
-        default = "";
-        description = "SSH theme name";
-      };
+    zshTheme = lib.mkOption {
+      type = lib.types.str;
+      default = "maran";
+      description = "Zsh oh-my-zsh theme";
     };
   };
 }

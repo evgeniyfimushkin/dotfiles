@@ -31,8 +31,8 @@
     ../../modules/server/openssh.nix
   ];
 
+  my.zshTheme = "essembeh";
+
   networking.hostName = "lab";
   system.stateVersion = "25.11";
-
-  my.ssh.theme = "eastwood";
 }
