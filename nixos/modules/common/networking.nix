@@ -57,7 +57,7 @@
   # red flag
   networking.firewall.enable = false;
 
-  services.logmein-hamachi.enable = true;
+  # services.logmein-hamachi.enable = true;
   networking.extraHosts = ''
     45.155.204.190 chatgpt.com
     95.182.120.241 chatgpt.com
