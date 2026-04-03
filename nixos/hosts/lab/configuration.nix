@@ -13,7 +13,6 @@
     ../../modules/common/docker.nix
     ../../modules/common/dyn-libs.nix
     ../../modules/common/gpu.nix
-    ../../modules/common/k3s.nix
     ../../modules/common/keyboard.nix
     ../../modules/common/locale.nix
     ../../modules/common/monitoring.nix
