@@ -29,6 +29,7 @@
     ../../modules/common/zsh.nix
 
     ../../modules/server/openssh.nix
+    ../../modules/server/k3s.nix
   ];
 
   my.zshTheme = "essembeh";

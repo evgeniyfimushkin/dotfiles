@@ -13,7 +13,6 @@
     ../../modules/common/docker.nix
     ../../modules/common/dyn-libs.nix
     ../../modules/common/gpu.nix
-    ../../modules/common/k3s.nix
     ../../modules/common/keyboard.nix
     ../../modules/common/locale.nix
     ../../modules/common/monitoring.nix
@@ -37,6 +36,7 @@
     ../../modules/desktop/gui.nix
     ../../modules/desktop/hyprland.nix
     # ../../modules/desktop/kde.nix
+    ../../modules/desktop/k3s.nix
     ../../modules/desktop/media.nix
     ../../modules/desktop/obsidian-sync.nix
     ../../modules/desktop/printing.nix
