@@ -23,6 +23,8 @@
       nrs = "sudo nixos-rebuild switch --flake ~/dotfiles/nixos#${config.networking.hostName}";
       nrb = "sudo nixos-rebuild build --flake ~/dotfiles/nixos#${config.networking.hostName}";
       nrt = "sudo nixos-rebuild test --flake ~/dotfiles/nixos#${config.networking.hostName}";
+      nrg = "sudo nix-collect-garbage -d";
+      nfu = "sudo nix flake update --flake ~/dotfiles/nixos";
     };
   };
 }
