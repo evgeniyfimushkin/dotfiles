@@ -49,6 +49,7 @@ in
     mdf2iso
     fuseiso
     ncdu
+    certbot
   ];
   programs.git.enable = true;
 }
