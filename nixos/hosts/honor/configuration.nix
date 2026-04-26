@@ -5,6 +5,15 @@
   ...
 }:
 
+let
+  # Fix stale vendorHash in wg-feed upstream package
+  wg-feed-overlay = final: prev: {
+    wg-feed = prev.wg-feed.override {
+      vendorHash = "sha256-WEjJl7EknFtMGIsiPVsZ6IuQ4UMal/jJhRKSg8MTFJg=";
+    };
+  };
+in
+
 {
   imports = [
     ./hardware-configuration.nix
@@ -49,4 +58,25 @@
 
   networking.hostName = "honor";
   system.stateVersion = "25.11";
+
+  # Fix stale vendorHash in wg-feed upstream package (applied after upstream overlay)
+  nixpkgs.overlays = lib.mkAfter [ wg-feed-overlay ];
+
+  # wg-feed WireGuard subscription manager
+  services.wg-feed = {
+    enable = true;
+    environmentFile = "/run/secrets/wg-feed.env";
+    state_path = "/var/lib/wg-feed/state.json";
+    logLevel = "info";
+
+    feeds.main = {
+      sync = {
+        enabled = true;
+        mode = "sse";
+        polling.interval = 0;
+        endpoints = [ "$SUBSCRIPTION_URL" ];
+      };
+      backends.default.type = "wg-quick";
+    };
+  };
 }

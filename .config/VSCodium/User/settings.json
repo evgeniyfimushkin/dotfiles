@@ -6,28 +6,29 @@
     "workbench.colorTheme": "Gruvbox Dark Hard",
     "redhat.telemetry.enabled": true,
     "terminal.integrated.enableMultiLinePasteWarning": "never",
-    "roo-cline.allowedCommands": ["git log", "git diff", "git show"],
+    "roo-cline.allowedCommands": [
+    ],
     "roo-cline.deniedCommands": [],
     "[css]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
     },
     "[jsonc]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
     },
     "[json]": {
-        "editor.defaultFormatter": "vscode.json-language-features"
+        "editor.defaultFormatter": "vscode.json-language-features",
     },
     "prettier.printWidth": 120,
     "prettier.tabWidth": 4,
     "[nix]": {
-        "editor.defaultFormatter": "jnoortheen.nix-ide"
+        "editor.defaultFormatter": "jnoortheen.nix-ide",
     },
     "[properties]": {
-        "editor.defaultFormatter": "foxundermoon.shell-format"
+        "editor.defaultFormatter": "foxundermoon.shell-format",
     },
     "[docker]": {
         "editor.formatOnSave": false,
-        "editor.defaultFormatter": null
+        "editor.defaultFormatter": null,
     },
     "shellformat.effectLanguages": [
         "shellscript",
@@ -40,22 +41,22 @@
         "properties",
         "spring-boot-properties",
         "azcli",
-        "bats"
+        "bats",
     ],
     "[dockerfile]": {
         "editor.formatOnSave": false,
-        "editor.defaultFormatter": null
+        "editor.defaultFormatter": null,
     },
     "[shellscript]": {
-        "editor.defaultFormatter": "foxundermoon.shell-format"
+        "editor.defaultFormatter": "foxundermoon.shell-format",
     },
     "editor.wordWrap": "on",
     "editor.formatOnSave": true,
     "[html]": {
-        "editor.defaultFormatter": "vscode.html-language-features"
+        "editor.defaultFormatter": "vscode.html-language-features",
     },
     "[dockercompose]": {
-        "editor.defaultFormatter": "redhat.vscode-yaml"
+        "editor.defaultFormatter": "redhat.vscode-yaml",
     },
     "explorer.confirmPasteNative": false,
     "explorer.confirmDragAndDrop": false,
@@ -64,6 +65,6 @@
     "vim.vimrc.path": "~/.vim/vimrc",
     "vim.smartRelativeLine": true,
     "vim.useSystemClipboard": true,
-    "roo-cline.debug": false
+    "roo-cline.debug": false,
 }
 // ->

@@ -9,6 +9,7 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    wg-feed.url = "github:exeteres/wg-feed";
   };
 
   outputs =
@@ -18,6 +19,7 @@
       nixpkgs-stable,
       nix-flatpak,
       home-manager,
+      wg-feed,
       ...
     }@inputs:
     let
@@ -34,6 +36,7 @@
           specialArgs = { inherit inputs; };
           modules = [
             nix-flatpak.nixosModules.nix-flatpak
+            wg-feed.nixosModules.wg-feed
             ./hosts/${hostname}/configuration.nix
             home-manager.nixosModules.home-manager
             {
