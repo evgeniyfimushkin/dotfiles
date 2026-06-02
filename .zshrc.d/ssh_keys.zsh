@@ -1,2 +1,2 @@
 # eval "$(ssh-agent -s)" &> /dev/null
-ssh-add /home/eugene/.ssh/* &>/dev/null
+ssh-add "$HOME/.ssh"/* &>/dev/null

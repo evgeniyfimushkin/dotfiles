@@ -19,6 +19,9 @@
     foliate
     bitwarden-desktop
     zoom-us
+    davinci-resolve
+    blackmagic-desktop-video
+    pdfarranger
   ];
 
   programs = {

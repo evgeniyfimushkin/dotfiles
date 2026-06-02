@@ -58,20 +58,5 @@
   networking.firewall.enable = false;
 
   # services.logmein-hamachi.enable = true;
-  networking.extraHosts = ''
-    45.155.204.190 chatgpt.com
-    95.182.120.241 chatgpt.com
-    45.155.204.190 ab.chatgpt.com
-    95.182.120.241 ab.chatgpt.com
-    45.155.204.190 gpt3-openai.com
-    95.182.120.241 gpt3-openai.com
-    45.155.204.190 operator.chatgpt.com
-    95.182.120.241 operator.chatgpt.com
-    45.155.204.190 sora.chatgpt.com
-    95.182.120.241 sora.chatgpt.com
-    45.155.204.190 webrtc.chatgpt.com
-    95.182.120.241 webrtc.chatgpt.com
-    45.155.204.190 www.chatgpt.com
-    95.182.120.241 www.chatgpt.com
-  '';
+  networking.extraHosts = "";
 }

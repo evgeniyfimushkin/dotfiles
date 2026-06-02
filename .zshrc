@@ -99,7 +99,7 @@ plugins=(git)
 # - $ZSH_CUSTOM/aliases.zsh
 # - $ZSH_CUSTOM/macos.zsh
 # For a full list of active aliases, run `alias`.
-ZSHRC_D="/home/eugene/.zshrc.d"
+ZSHRC_D="${ZDOTDIR:-$HOME}/.zshrc.d"
 if [[ -d "$ZSHRC_D" ]]; then
   for file in "$ZSHRC_D"/*.zsh; do
     [[ -r "$file" ]] && source "$file"

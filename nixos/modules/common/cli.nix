@@ -50,6 +50,7 @@ in
     fuseiso
     ncdu
     certbot
+    clinfo
   ];
   programs.git.enable = true;
 }
