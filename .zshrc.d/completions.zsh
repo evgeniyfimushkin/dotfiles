@@ -1,5 +1,12 @@
+# ya tool completions
+if [[ -d "$HOME/.ya.completion/zsh" ]]; then
+    fpath=("$HOME/.ya.completion/zsh" $fpath)
+fi
+
 autoload -Uz compinit
 compinit -C
+
+setopt complete_aliases
 
 # Only load kubectl completion if kubectl is installed
 if command -v kubectl &>/dev/null; then

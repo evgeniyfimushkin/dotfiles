@@ -9,12 +9,12 @@
     "modules-left": ["hyprland/workspaces", "hyprland/mode", "hyprland/scratchpad", "custom/media"],
     "modules-center": [
         // "hyprland/window"
-        "power-profiles-daemon",
+        // "power-profiles-daemon",
         "pulseaudio",
         "cpu",
         "memory",
         "custom/containers",
-        "temperature",
+        // "temperature",
         "network"
     ],
     "modules-right": [

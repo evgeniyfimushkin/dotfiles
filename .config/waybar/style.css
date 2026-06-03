@@ -13,7 +13,7 @@
 @define-color privacy-audio-out #458588; /* синий/бирюзовый для аудиовыхода */
 
 * {
-    font-family: "JetBrains Mono", Roboto, Helvetica, Arial, sans-serif;
+    font-family: "JetBrains Mono", "JetBrainsMono Nerd Font", "Font Awesome 6 Free", "Font Awesome 6 Brands", Roboto, Helvetica, Arial, sans-serif;
     font-size: 15px;
     font-weight: 500;
 }
