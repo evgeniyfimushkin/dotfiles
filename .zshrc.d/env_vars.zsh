@@ -1,3 +1,11 @@
 export TERM=xterm-256color
-export XDG_DATA_DIRS="/var/lib/snapd/desktop:${XDG_DATA_DIRS}"
-export SSH_AUTH_SOCK=${HOME}/.skotty/sock/default.sock
+
+# Homebrew
+if [[ -x /opt/homebrew/bin/brew ]]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+elif [[ -x /usr/local/bin/brew ]]; then
+    eval "$(/usr/local/bin/brew shellenv)"
+fi
+
+# SSH via macOS Keychain
+export SSH_AUTH_SOCK=${HOME}/.ssh/agent.sock
