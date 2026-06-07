@@ -6,8 +6,7 @@
     "workbench.colorTheme": "Gruvbox Dark Hard",
     "redhat.telemetry.enabled": true,
     "terminal.integrated.enableMultiLinePasteWarning": "never",
-    "roo-cline.allowedCommands": [
-    ],
+    "roo-cline.allowedCommands": [],
     "roo-cline.deniedCommands": [],
     "[css]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode",
