@@ -8,4 +8,4 @@ elif [[ -x /usr/local/bin/brew ]]; then
 fi
 
 # SSH via macOS Keychain
-export SSH_AUTH_SOCK=${HOME}/.ssh/agent.sock
+export SSH_AUTH_SOCK=${HOME}/.skotty/sock/default.sock
