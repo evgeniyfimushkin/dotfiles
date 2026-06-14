@@ -10,7 +10,7 @@ setopt complete_aliases
 
 # Only load kubectl completion if kubectl is installed
 if command -v kubectl &>/dev/null; then
-    source ~/.zshrc.d/kubectl_completion.zsh
+    source <(kubectl completion zsh)
 fi
 
 # Only set compdef for kubecolor if both kubecolor and kubectl exist
