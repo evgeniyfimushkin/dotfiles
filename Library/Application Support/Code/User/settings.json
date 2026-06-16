@@ -65,4 +65,5 @@
     "roo-cline.debug": false,
     "workbench.settings.applyToAllProfiles": [],
     "editor.fontSize": 14,
+    "vscode-yandex-arc.arcStatusUpdateMode": "delayed",
 }
