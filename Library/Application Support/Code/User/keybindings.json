@@ -172,5 +172,18 @@
     {
         "key": "ctrl+6",
         "command": "-workbench.action.openEditorAtIndex6"
+    },
+    {
+        "key": "alt+a",
+        "command": "-editor.action.accessibilityHelpConfigureAssignedKeybindings",
+        "when": "accessibilityHelpIsShown && accessibleViewHasAssignedKeybindings"
+    },
+    {
+        "key": "alt+a",
+        "command": "yandex-code-assist.SidebarProvider.focus"
+    },
+    {
+        "key": "alt+a",
+        "command": "claude-vscode.sidebar.open"
     }
 ]

@@ -66,4 +66,16 @@
     "workbench.settings.applyToAllProfiles": [],
     "editor.fontSize": 14,
     "vscode-yandex-arc.arcStatusUpdateMode": "delayed",
+    "yandex-code-assist.allowedCommands": [
+        "npm test",
+        "npm install",
+        "tsc",
+        "git log",
+        "git diff",
+        "git show"
+    ],
+    "yandex-code-assist.deniedCommands": [],
+    "claudeCode.preferredLocation": "sidebar",
+    "python.analysis.indexing": false,
+    "python.analysis.indexing.followSymlinkedFolders": false,
 }
