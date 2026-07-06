@@ -78,4 +78,19 @@
     "claudeCode.preferredLocation": "sidebar",
     "python.analysis.indexing": false,
     "python.analysis.indexing.followSymlinkedFolders": false,
+    // --- Не следить за FUSE-деревом Аркадии (главная причина нагрузки на arc-демон) ---
+    "files.watcherExclude": {
+        "**/.arc/**": true,
+        "/Users/evgeniyfim/arcadia/**": true
+    },
+    // --- Поиск: не ходить по симлинкам и не индексировать на лету ---
+    "search.followSymlinks": false,
+    "search.searchOnType": false,
+    // --- Git-расширение не понимает arc; не сканировать вложенные репозитории ---
+    "git.autorepositoryDetection": "openEditors",
+    "scm.autoReveal": false,
+    "explorer.autoReveal": false,
+    // --- Меньше фоновых обходчиков дерева ---
+    "npm.autoDetect": "off",
+    "task.autoDetect": "off",
 }

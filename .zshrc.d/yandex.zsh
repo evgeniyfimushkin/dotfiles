@@ -8,6 +8,7 @@ alias infractl='ya tool infractl'
 alias ci='ya tool ci'
 alias cs='ya tool cs'
 alias yav='ya tool yav'
+alias sky='ya tool sky'
 
 smclusters () {
     local host="$1"
