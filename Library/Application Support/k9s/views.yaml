@@ -1,0 +1,46 @@
+views:
+  mon.k.yandex-team.ru/v1/themonitoringalerts:
+    columns:
+      - NAME:.metadata.name
+      - GEN:.metadata.generation
+      - OBS:.status.sync_status.observed_generation
+      - APPLIED:.status.sync_status.applied_generation
+      - SUCCESS:.status.sync_status.success.status
+      - REASON:.status.sync_status.success.reason
+
+  media.yandex-team.ru/v1/buckyballnodes:
+    columns:
+      - NAME:.metadata.name
+      - GEN:.metadata.generation
+      - SYNC-REV:.metadata.annotations.servicemesh\.k\.yandex-team\.ru/buckyballnode\.sync-revision
+      - ENV:.spec.configuration.environment
+      - TVM:.spec.configuration.tvm_id
+
+  k.yandex-team.ru/v1/servicemeshnodes:
+    columns:
+      - NAME:.metadata.name
+      - GEN:.metadata.generation
+      - OBS:.status.observed_generation
+      - APPLIED:.status.applied_generation
+      - PROCESSED:.status.processed.status
+      - SUCCESS:.status.success.status
+      - REV:.spec.node.revision
+      - SYNC-REV:.spec.node.sync_revision
+
+  k.yandex-team.ru/v1/runtimegroups:
+    columns:
+      - NAME:.metadata.name
+      - GEN:.metadata.generation
+      - OBS:.status.observed_generation
+      - APPLIED:.status.sync_status.stage.applied_generation
+      - DEPLOYED:.status.deployed.status
+      - REASON:.status.deployed.reason
+      - SYNC:.status.sync_status.success.status
+      - SYNC-REASON:.status.sync_status.success.reason
+      - YD-GEN:.status.sync_status.stage.deploystage_generation
+
+  k.yandex-team.ru/v1/alertgroups:
+    columns:
+      - NAME:.metadata.name
+      - GEN:.metadata.generation
+      - LAST-APPLIED:.metadata.annotations.k\.yandex-team\.ru/last-applied-generation

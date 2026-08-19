@@ -180,10 +180,6 @@
     },
     {
         "key": "alt+a",
-        "command": "yandex-code-assist.SidebarProvider.focus"
-    },
-    {
-        "key": "alt+a",
-        "command": "claude-vscode.sidebar.open"
+        "command": "chatgpt.openSidebar"
     }
 ]
