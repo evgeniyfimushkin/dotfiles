@@ -1,4 +1,80 @@
 views:
+  k.yandex-team.ru/v1/applications:
+    columns:
+      - NAME:.metadata.name
+      - GEN:.metadata.generation
+      - OBS:.status.sync_status.observed_generation
+      - APPLIED:.status.sync_status.applied_generation
+      - DEPLOYED:.status.deployed.status
+      - SYNC:.status.sync_status.success.status
+      - ERROR:.status.sync_status.error.status
+      - REASON:.status.sync_status.error.reason
+      - MDB-ERR:.status.mdb_network_status.sync_status.error.status
+      - BASTION-ERR:.status.bastion_puncher_rule_status.sync_status.error.status
+      - LAST-APPLIED:.metadata.annotations.k\.yandex-team\.ru/last-applied-generation
+
+  k.yandex-team.ru/v1/deployprojects:
+    columns:
+      - NAME:.metadata.name
+      - OWNER:.metadata.ownerReferences[0].name
+      - GEN:.metadata.generation
+      - OBS:.status.observed_generation
+      - APPLIED:.status.sync_status.applied_generation
+      - DEPLOYED:.status.deployed.status
+      - SYNC:.status.sync_status.success.status
+      - ERROR:.status.sync_status.error.status
+      - REASON:.status.sync_status.error.reason
+
+  k.yandex-team.ru/v1/infraservices:
+    columns:
+      - NAME:.metadata.name
+      - OWNER:.metadata.ownerReferences[0].name
+      - GEN:.metadata.generation
+      - OBS:.status.sync_status.observed_generation
+      - APPLIED:.status.sync_status.applied_generation
+      - SYNC:.status.sync_status.success.status
+      - ERROR:.status.sync_status.error.status
+      - REASON:.status.sync_status.error.reason
+
+  k.yandex-team.ru/v1/networkmacros:
+    columns:
+      - NAME:.metadata.name
+      - OWNER:.metadata.ownerReferences[0].name
+      - GEN:.metadata.generation
+      - OBS:.status.sync_status.observed_generation
+      - APPLIED:.status.sync_status.applied_generation
+      - SYNC:.status.sync_status.success.status
+      - ERROR:.status.sync_status.error.status
+      - REASON:.status.sync_status.error.reason
+      - NET:.status.project_net
+
+  k.yandex-team.ru/v1/puncherrulesets:
+    columns:
+      - NAME:.metadata.name
+      - OWNER:.metadata.ownerReferences[0].name
+      - GEN:.metadata.generation
+      - OBS:.status.sync_status.observed_generation
+      - APPLIED:.status.sync_status.applied_generation
+      - DEPLOYED:.status.deployed.status
+      - SYNC:.status.sync_status.success.status
+      - ERROR:.status.sync_status.error.status
+      - REASON:.status.sync_status.error.reason
+
+  k.yandex-team.ru/v1/tvms:
+    columns:
+      - NAME:.metadata.name
+      - OWNER:.metadata.ownerReferences[0].name
+      - ENV:.spec.environment
+      - GEN:.metadata.generation
+      - OBS:.status.sync_status.observed_generation
+      - APPLIED:.status.sync_status.applied_generation
+      - ALLOC:.status.allocation_status.state
+      - TVM-ID:.status.allocated_tvm_id
+      - DEPLOYED:.status.deployed.status
+      - SYNC:.status.sync_status.success.status
+      - ERROR:.status.sync_status.error.status
+      - REASON:.status.sync_status.error.reason
+
   mon.k.yandex-team.ru/v1/themonitoringalerts:
     columns:
       - NAME:.metadata.name
@@ -6,7 +82,9 @@ views:
       - OBS:.status.sync_status.observed_generation
       - APPLIED:.status.sync_status.applied_generation
       - SUCCESS:.status.sync_status.success.status
-      - REASON:.status.sync_status.success.reason
+      - SUCCESS-REASON:.status.sync_status.success.reason
+      - ERROR:.status.sync_status.error.status
+      - ERR-REASON:.status.sync_status.error.reason
 
   media.yandex-team.ru/v1/buckyballnodes:
     columns:
@@ -24,6 +102,8 @@ views:
       - APPLIED:.status.applied_generation
       - PROCESSED:.status.processed.status
       - SUCCESS:.status.success.status
+      - REASON:.status.success.reason
+      - MESSAGE:.status.success.message
       - REV:.spec.node.revision
       - SYNC-REV:.spec.node.sync_revision
 
@@ -37,10 +117,14 @@ views:
       - REASON:.status.deployed.reason
       - SYNC:.status.sync_status.success.status
       - SYNC-REASON:.status.sync_status.success.reason
+      - ERROR:.status.sync_status.error.status
+      - ERR-REASON:.status.sync_status.error.reason
       - YD-GEN:.status.sync_status.stage.deploystage_generation
 
   k.yandex-team.ru/v1/alertgroups:
     columns:
       - NAME:.metadata.name
       - GEN:.metadata.generation
+      - OBS:.status.sync_status.observed_generation
+      - APPLIED:.status.sync_status.applied_generation
       - LAST-APPLIED:.metadata.annotations.k\.yandex-team\.ru/last-applied-generation

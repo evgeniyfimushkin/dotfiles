@@ -76,6 +76,8 @@
     ],
     "yandex-code-assist.deniedCommands": [],
     "claudeCode.preferredLocation": "sidebar",
+    "yandex-code-assist.acp.openAiAuthPromptEnabled": true,
+    "yandex-code-assist.userClassification": "nonTech",
     // "python.analysis.indexing": false,
     // "python.analysis.indexing.followSymlinkedFolders": false,
     // // --- Не следить за FUSE-деревом Аркадии (главная причина нагрузки на arc-демон) ---
