@@ -86,6 +86,19 @@ views:
       - ERROR:.status.sync_status.error.status
       - ERR-REASON:.status.sync_status.error.reason
 
+  mon.k.yandex-team.ru/v1/themonitoringdashboards:
+    columns:
+      - NAME:.metadata.name
+      - PROJECT:.spec.object.project_id
+      - DASHBOARD:.spec.object.name
+      - GEN:.metadata.generation
+      - OBS:.status.sync_status.observed_generation
+      - APPLIED:.status.sync_status.applied_generation
+      - SUCCESS:.status.sync_status.success.status
+      - SUCCESS-REASON:.status.sync_status.success.reason
+      - ERROR:.status.sync_status.error.status
+      - ERR-REASON:.status.sync_status.error.reason
+
   media.yandex-team.ru/v1/buckyballnodes:
     columns:
       - NAME:.metadata.name
