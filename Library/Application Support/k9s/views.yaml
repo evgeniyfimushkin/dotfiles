@@ -76,28 +76,41 @@ views:
       - REASON:.status.sync_status.error.reason
 
   mon.k.yandex-team.ru/v1/themonitoringalerts:
-    columns:
-      - NAME:.metadata.name
-      - GEN:.metadata.generation
-      - OBS:.status.sync_status.observed_generation
-      - APPLIED:.status.sync_status.applied_generation
-      - SUCCESS:.status.sync_status.success.status
-      - SUCCESS-REASON:.status.sync_status.success.reason
-      - ERROR:.status.sync_status.error.status
-      - ERR-REASON:.status.sync_status.error.reason
-
-  mon.k.yandex-team.ru/v1/themonitoringdashboards:
+    sortColumn: NAME:asc
     columns:
       - NAME:.metadata.name
       - PROJECT:.spec.object.project_id
-      - DASHBOARD:.spec.object.name
-      - GEN:.metadata.generation
-      - OBS:.status.sync_status.observed_generation
-      - APPLIED:.status.sync_status.applied_generation
+      - STATE:.spec.object.state
+      - GEN:.metadata.generation|NR
+      - OBS:.status.sync_status.observed_generation|NR
+      - APPLIED:.status.sync_status.applied_generation|NR
       - SUCCESS:.status.sync_status.success.status
-      - SUCCESS-REASON:.status.sync_status.success.reason
       - ERROR:.status.sync_status.error.status
       - ERR-REASON:.status.sync_status.error.reason
+      - ALERT:.spec.object.name|W
+      - SEVERITY:.spec.object.severity|W
+      - WINDOW-S:.spec.object.window_secs|WN
+      - NO-DATA:.spec.object.no_points_policy|W
+      - OWNER:.metadata.ownerReferences[0].name|W
+      - SUCCESS-REASON:.status.sync_status.success.reason|W
+      - MESSAGE:.status.sync_status.error.message|W
+
+  mon.k.yandex-team.ru/v1/themonitoringdashboards:
+    sortColumn: NAME:asc
+    columns:
+      - NAME:.metadata.name
+      - PROJECT:.spec.object.project_id
+      - GEN:.metadata.generation|NR
+      - OBS:.status.sync_status.observed_generation|NR
+      - APPLIED:.status.sync_status.applied_generation|NR
+      - SUCCESS:.status.sync_status.success.status
+      - ERROR:.status.sync_status.error.status
+      - ERR-REASON:.status.sync_status.error.reason
+      - DASHBOARD:.spec.object.name|W
+      - TITLE:.spec.object.title|W
+      - OWNER:.metadata.ownerReferences[0].name|W
+      - SUCCESS-REASON:.status.sync_status.success.reason|W
+      - MESSAGE:.status.sync_status.error.message|W
 
   media.yandex-team.ru/v1/buckyballnodes:
     columns:
@@ -121,18 +134,27 @@ views:
       - SYNC-REV:.spec.node.sync_revision
 
   k.yandex-team.ru/v1/runtimegroups:
+    sortColumn: NAME:asc
     columns:
       - NAME:.metadata.name
-      - GEN:.metadata.generation
-      - OBS:.status.observed_generation
-      - APPLIED:.status.sync_status.stage.applied_generation
+      - ENV:.spec.environment
+      - GEN:.metadata.generation|NR
+      - OBS:.status.observed_generation|NR
+      - APPLIED:.status.sync_status.stage.applied_generation|NR
       - DEPLOYED:.status.deployed.status
       - REASON:.status.deployed.reason
       - SYNC:.status.sync_status.success.status
-      - SYNC-REASON:.status.sync_status.success.reason
+      - SYNC-REASON:.status.sync_status.success.reason|W
       - ERROR:.status.sync_status.error.status
       - ERR-REASON:.status.sync_status.error.reason
-      - YD-GEN:.status.sync_status.stage.deploystage_generation
+      - YD-GEN:.status.sync_status.stage.deploystage_generation|W
+      - OWNER:.metadata.ownerReferences[0].name|W
+      - APP:.spec.app_instance|W
+      - DEPLOY-MESSAGE:.status.deployed.message|W
+      - MESSAGE:.status.sync_status.error.message|W
+      - URL:.status.sync_status.url|W
+      - READY|H
+      - OCCURED|H
 
   k.yandex-team.ru/v1/alertgroups:
     columns:
@@ -141,3 +163,374 @@ views:
       - OBS:.status.sync_status.observed_generation
       - APPLIED:.status.sync_status.applied_generation
       - LAST-APPLIED:.metadata.annotations.k\.yandex-team\.ru/last-applied-generation
+
+  k.yandex-team.ru/v1/runtimemetricses:
+    sortColumn: NAME:asc
+    columns:
+      - NAME:.metadata.name
+      - ENV:.spec.environment
+      - PROJECT:.spec.project_id
+      - GEN:.metadata.generation|NR
+      - OBS:.status.observed_generation|NR
+      - APPLIED:.status.applied_generation|NR
+      - DEPLOYED:.status.deployed.status
+      - CLEANED:.status.cleaned.status
+      - REASON:.status.deployed.reason
+      - OWNER:.metadata.ownerReferences[0].name|W
+      - GROUPS:.spec.runtimes.*.ref.group|W
+      - RUNTIMES:.spec.runtimes.*.ref.name|W
+      - ENDPOINTS:.spec.endpoints[*].name|W
+      - CLEAN-REASON:.status.cleaned.reason|W
+      - MESSAGE:.status.deployed.message|W
+      - CLEAN-MESSAGE:.status.cleaned.message|W
+      - ENDPOINTS-OBJECT:.spec.endpoints_object|W
+      - CLUSTER-REASONS:.status.clusters.*.deployed.reason|W
+      - SHARD-REASONS:.status.shards.*.deployed.reason|W
+
+  k.yandex-team.ru/v1/awacsbackends:
+    sortColumn: NAME:asc
+    columns:
+      - NAME:.metadata.name
+      - AWACS:.spec.namespace_id
+      - GEN:.metadata.generation|NR
+      - OBS:.status.sync_status.observed_generation|NR
+      - APPLIED:.status.sync_status.applied_generation|NR
+      - SYNC:.status.sync_status.success.status
+      - ERROR:.status.sync_status.error.status
+      - ERR-REASON:.status.sync_status.error.reason
+      - ACTIVE:.status.backend_status.active.*.status|W
+      - APPLYING:.status.backend_status.in_progress.*.status|W
+      - VALIDATED:.status.backend_status.validated.*.status|W
+      - SELECTOR:.spec.backend_spec.selector.type|W
+      - DC:.spec.backend_spec.selector.yp_endpoint_sets[*].cluster|W
+      - ENDPOINT-SETS:.spec.backend_spec.selector.yp_endpoint_sets[*].endpoint_set_id|W
+      - OWNER:.metadata.ownerReferences[0].name|W
+      - SYNC-REASON:.status.sync_status.success.reason|W
+      - MESSAGE:.status.sync_status.error.message|W
+      - URL:.status.sync_status.url|W
+
+  k.yandex-team.ru/v1/awacseasydomains:
+    sortColumn: NAME:asc
+    columns:
+      - NAME:.metadata.name
+      - AWACS:.spec.namespace_id
+      - GEN:.metadata.generation|NR
+      - OBS:.status.sync_status.observed_generation|NR
+      - APPLIED:.status.sync_status.applied_generation|NR
+      - DEPLOYED:.status.deployed.status
+      - SYNC:.status.sync_status.success.status
+      - ERROR:.status.sync_status.error.status
+      - ERR-REASON:.status.sync_status.error.reason
+      - ACTIVE:.status.domain_status.active.*.status|W
+      - APPLYING:.status.domain_status.in_progress.*.status|W
+      - VALIDATED:.status.domain_status.validated.*.status|W
+      - FQDNS:.spec.fqdns[*]|W
+      - PROTOCOL:.spec.protocol|W
+      - UPSTREAMS:.spec.upstreams[*]|W
+      - ORDER:.status.order_status.status|W
+      - DEPLOY-REASON:.status.deployed.reason|W
+      - OWNER:.metadata.ownerReferences[0].name|W
+      - SYNC-REASON:.status.sync_status.success.reason|W
+      - MESSAGE:.status.sync_status.error.message|W
+      - URL:.status.sync_status.url|W
+
+  k.yandex-team.ru/v1/awacsupstreams:
+    sortColumn: NAME:asc
+    columns:
+      - NAME:.metadata.name
+      - AWACS:.spec.namespace_id
+      - GEN:.metadata.generation|NR
+      - OBS:.status.sync_status.observed_generation|NR
+      - APPLIED:.status.sync_status.applied_generation|NR
+      - DEPLOYED:.status.deployed.status
+      - SYNC:.status.sync_status.success.status
+      - ERROR:.status.sync_status.error.status
+      - ERR-REASON:.status.sync_status.error.reason
+      - ACTIVE:.status.upstream_status.active.*.status|W
+      - APPLYING:.status.upstream_status.in_progress.*.status|W
+      - VALIDATED:.status.upstream_status.validated.*.status|W
+      - MODE:.spec.upstream_spec.yandex_balancer.mode|W
+      - GRPC:.spec.upstream_spec.yandex_balancer.is_grpc|W
+      - DEPLOY-REASON:.status.deployed.reason|W
+      - OWNER:.metadata.ownerReferences[0].name|W
+      - SYNC-REASON:.status.sync_status.success.reason|W
+      - MESSAGE:.status.sync_status.error.message|W
+      - URL:.status.sync_status.url|W
+
+  k.yandex-team.ru/v1/awacseasybalancers:
+    sortColumn: NAME:asc
+    columns:
+      - NAME:.metadata.name
+      - ENV:.spec.environment
+      - GEN:.metadata.generation|NR
+      - OBS:.status.sync_status.observed_generation|NR
+      - APPLIED:.status.sync_status.applied_generation|NR
+      - DEPLOYED:.status.deployed.status
+      - SYNC:.status.sync_status.success.status
+      - ERROR:.status.sync_status.error.status
+      - ERR-REASON:.status.sync_status.error.reason
+      - DNS:.spec.dns.domain|W
+      - ENGINE:.spec.engine|W
+      - DEPLOY-REASON:.status.deployed.reason|W
+      - NS-ERR:.status.sync_status.namespace.error.reason|W
+      - L3-ERR:.status.sync_status.l3balancer.error.reason|W
+      - BALANCER-ERR:.status.sync_status.balancers.*.error.reason|W
+      - DNS-ERR:.status.sync_status.dns_records.*.error.reason|W
+      - OWNER:.metadata.ownerReferences[0].name|W
+      - SYNC-REASON:.status.sync_status.success.reason|W
+      - MESSAGE:.status.sync_status.error.message|W
+      - URL:.status.sync_status.url|W
+
+  k.yandex-team.ru/v1/metricendpointses:
+    sortColumn: NAME:asc
+    columns:
+      - NAME:.metadata.name
+      - PROJECT:.spec.project_id
+      - GEN:.metadata.generation|NR
+      - OBS:.status.observed_generation|NR
+      - APPLIED:.status.applied_generation|NR
+      - DEPLOYED:.status.deployed.status
+      - REASON:.status.deployed.reason
+      - SERVICES:.spec.endpoints.*.service_id|W
+      - PULL-URLS:.spec.endpoints.*.pull.url|W
+      - TTL:.spec.endpoints.*.metrics_ttl|W
+      - ENDPOINT-REASONS:.status.endpoints.*.deployed.reason|W
+      - MESSAGE:.status.deployed.message|W
+      - OWNER:.metadata.ownerReferences[0].name|W
+
+  k.yandex-team.ru/v1/betas:
+    sortColumn: NAME:asc
+    columns:
+      - NAME:.metadata.name
+      - GEN:.metadata.generation|NR
+      - OBS:.status.observed_generation|NR
+      - LIFETIME:.spec.lifetime
+      - AGE:.metadata.creationTimestamp|T
+      - DELETING:.metadata.deletionTimestamp|W
+      - OWNER:.metadata.ownerReferences[0].name|W
+      - OBSERVED|H
+
+  rbac.k.yandex-team.ru/v1/rolesconfigurations:
+    sortColumn: NAME:asc
+    columns:
+      - NAME:.metadata.name
+      - GEN:.metadata.generation|NR
+      - OBS:.status.sync_status.observed_generation|NR
+      - APPLIED:.status.sync_status.applied_generation|NR
+      - DEPLOYED:.status.deployed.status
+      - SYNC:.status.sync_status.success.status
+      - ERROR:.status.sync_status.error.status
+      - ERR-REASON:.status.sync_status.error.reason
+      - ROLE-STATUS:.status.roles.*.status|W
+      - LOGINS:.spec.roles[*].login|W
+      - ROLES:.spec.roles[*].role_slug|W
+      - ROLE-REASONS:.status.roles.*.reason|W
+      - IDM-IDS:.status.roles.*.idm_role_id|W
+      - DEPLOY-REASON:.status.deployed.reason|W
+      - OWNER:.metadata.ownerReferences[0].name|W
+      - SYNC-REASON:.status.sync_status.success.reason|W
+      - MESSAGE:.status.sync_status.error.message|W
+
+  k.yandex-team.ru/v1/mdbeasypostgres:
+    sortColumn: NAME:asc
+    columns:
+      - NAME:.metadata.name
+      - ENV:.spec.environment
+      - CLUSTER:.status.cluster_id
+      - GEN:.metadata.generation|NR
+      - OBS:.status.sync_status.observed_generation|NR
+      - APPLIED:.status.sync_status.applied_generation|NR
+      - DEPLOYED:.status.deployed.status
+      - SYNC:.status.sync_status.success.status
+      - ERROR:.status.sync_status.error.status
+      - ERR-REASON:.status.sync_status.error.reason
+      - DATABASES:.status.database_names[*]|W
+      - PRESET:.spec.compute.preset|W
+      - DISK:.spec.storage.quota|W
+      - LOCATIONS:.spec.hosts[*].location|W
+      - PROTECTED:.spec.deletion_protection|W
+      - DEPLOY-REASON:.status.deployed.reason|W
+      - CLUSTER-ERR:.status.sync_status.cluster.error.reason|W
+      - DB-ERR:.status.sync_status.databases.*.error.reason|W
+      - USER-ERR:.status.sync_status.users.*.error.reason|W
+      - OWNER:.metadata.ownerReferences[0].name|W
+      - SYNC-REASON:.status.sync_status.success.reason|W
+      - MESSAGE:.status.sync_status.error.message|W
+      - CLUSTERID|H
+      - READY|H
+
+  mon.k.yandex-team.ru/v1/themonitoringdashboardgrpcs:
+    sortColumn: NAME:asc
+    columns:
+      - NAME:.metadata.name
+      - PROJECT:.spec.object.project_id
+      - GEN:.metadata.generation|NR
+      - OBS:.status.sync_status.observed_generation|NR
+      - APPLIED:.status.sync_status.applied_generation|NR
+      - SUCCESS:.status.sync_status.success.status
+      - ERROR:.status.sync_status.error.status
+      - ERR-REASON:.status.sync_status.error.reason
+      - DASHBOARD:.spec.object.name|W
+      - TITLE:.spec.object.title|W
+      - OWNER:.metadata.ownerReferences[0].name|W
+      - SUCCESS-REASON:.status.sync_status.success.reason|W
+      - MESSAGE:.status.sync_status.error.message|W
+
+  mon.k.yandex-team.ru/v1/themonitoringescalations:
+    sortColumn: NAME:asc
+    columns:
+      - NAME:.metadata.name
+      - PROJECT:.spec.object.project
+      - GEN:.metadata.generation|NR
+      - OBS:.status.sync_status.observed_generation|NR
+      - APPLIED:.status.sync_status.applied_generation|NR
+      - SUCCESS:.status.sync_status.success.status
+      - ERROR:.status.sync_status.error.status
+      - ERR-REASON:.status.sync_status.error.reason
+      - ESCALATION:.spec.object.name|W
+      - TIMEZONE:.spec.object.timezone|W
+      - SEVERITIES:.spec.object.severity_levels[*]|W
+      - OWNER:.metadata.ownerReferences[0].name|W
+      - SUCCESS-REASON:.status.sync_status.success.reason|W
+      - MESSAGE:.status.sync_status.error.message|W
+
+  mon.k.yandex-team.ru/v1/themonitoringnotificationchannels:
+    sortColumn: NAME:asc
+    columns:
+      - NAME:.metadata.name
+      - PROJECT:.spec.object.project_id
+      - GEN:.metadata.generation|NR
+      - OBS:.status.sync_status.observed_generation|NR
+      - APPLIED:.status.sync_status.applied_generation|NR
+      - SUCCESS:.status.sync_status.success.status
+      - ERROR:.status.sync_status.error.status
+      - ERR-REASON:.status.sync_status.error.reason
+      - CHANNEL:.spec.object.name|W
+      - CHANNEL-ID:.spec.object.id|W
+      - NOTIFY-ON:.spec.object.notify_about_statuses[*]|W
+      - OWNER:.metadata.ownerReferences[0].name|W
+      - SUCCESS-REASON:.status.sync_status.success.reason|W
+      - MESSAGE:.status.sync_status.error.message|W
+
+  mon.k.yandex-team.ru/v1/themonitoringmutes:
+    sortColumn: NAME:asc
+    columns:
+      - NAME:.metadata.name
+      - PROJECT:.spec.object.project_id
+      - GEN:.metadata.generation|NR
+      - OBS:.status.sync_status.observed_generation|NR
+      - APPLIED:.status.sync_status.applied_generation|NR
+      - SUCCESS:.status.sync_status.success.status
+      - ERROR:.status.sync_status.error.status
+      - ERR-REASON:.status.sync_status.error.reason
+      - MUTE:.spec.object.name|W
+      - DESCRIPTION:.spec.object.description|W
+      - OWNER:.metadata.ownerReferences[0].name|W
+      - SUCCESS-REASON:.status.sync_status.success.reason|W
+      - MESSAGE:.status.sync_status.error.message|W
+
+  mon.k.yandex-team.ru/v1/themonitoringquicklinkssets:
+    sortColumn: NAME:asc
+    columns:
+      - NAME:.metadata.name
+      - PROJECT:.spec.object.project_id
+      - GEN:.metadata.generation|NR
+      - OBS:.status.sync_status.observed_generation|NR
+      - APPLIED:.status.sync_status.applied_generation|NR
+      - SUCCESS:.status.sync_status.success.status
+      - ERROR:.status.sync_status.error.status
+      - ERR-REASON:.status.sync_status.error.reason
+      - OWNER:.metadata.ownerReferences[0].name|W
+      - SUCCESS-REASON:.status.sync_status.success.reason|W
+      - MESSAGE:.status.sync_status.error.message|W
+
+  mon.k.yandex-team.ru/v1/themonitoringsynthetics:
+    sortColumn: NAME:asc
+    columns:
+      - NAME:.metadata.name
+      - PROJECT:.spec.object.project_id
+      - GEN:.metadata.generation|NR
+      - OBS:.status.sync_status.observed_generation|NR
+      - APPLIED:.status.sync_status.applied_generation|NR
+      - SUCCESS:.status.sync_status.success.status
+      - ERROR:.status.sync_status.error.status
+      - ERR-REASON:.status.sync_status.error.reason
+      - TITLE:.spec.object.title|W
+      - REFRESH:.spec.object.refresh_time|W
+      - LOCATIONS:.spec.object.location_names[*]|W
+      - OWNER:.metadata.ownerReferences[0].name|W
+      - SUCCESS-REASON:.status.sync_status.success.reason|W
+      - MESSAGE:.status.sync_status.error.message|W
+
+  mon.k.yandex-team.ru/v1/themonitoringslos:
+    sortColumn: NAME:asc
+    columns:
+      - NAME:.metadata.name
+      - PROJECT:.spec.object.project_id
+      - GEN:.metadata.generation|NR
+      - OBS:.status.sync_status.observed_generation|NR
+      - APPLIED:.status.sync_status.applied_generation|NR
+      - SUCCESS:.status.sync_status.success.status
+      - ERROR:.status.sync_status.error.status
+      - ERR-REASON:.status.sync_status.error.reason
+      - SLO:.spec.object.name|W
+      - TARGET:.spec.object.event_based.target|WN
+      - PERIOD-MS:.spec.object.period_millis|WN
+      - DELAY-MS:.spec.object.delay_millis|WN
+      - OWNER:.metadata.ownerReferences[0].name|W
+      - SUCCESS-REASON:.status.sync_status.success.reason|W
+      - MESSAGE:.status.sync_status.error.message|W
+
+  mon.k.yandex-team.ru/v1/themonitoringclusters:
+    sortColumn: NAME:asc
+    columns:
+      - NAME:.metadata.name
+      - GEN:.metadata.generation|NR
+      - OBS:.status.sync_status.observed_generation|NR
+      - APPLIED:.status.sync_status.applied_generation|NR
+      - SUCCESS:.status.sync_status.success.status
+      - ERROR:.status.sync_status.error.status
+      - ERR-REASON:.status.sync_status.error.reason
+      - CLUSTER:.spec.object.name|W
+      - FQDN:.spec.object.use_fqdn|W
+      - DC:.spec.object.yp_clusters[*].cluster|W
+      - POD-SETS:.spec.object.yp_clusters[*].pod_set_id|W
+      - OWNER:.metadata.ownerReferences[0].name|W
+      - SUCCESS-REASON:.status.sync_status.success.reason|W
+      - MESSAGE:.status.sync_status.error.message|W
+
+  mon.k.yandex-team.ru/v1/themonitoringservices:
+    sortColumn: NAME:asc
+    columns:
+      - NAME:.metadata.name
+      - GEN:.metadata.generation|NR
+      - OBS:.status.sync_status.observed_generation|NR
+      - APPLIED:.status.sync_status.applied_generation|NR
+      - SUCCESS:.status.sync_status.success.status
+      - ERROR:.status.sync_status.error.status
+      - ERR-REASON:.status.sync_status.error.reason
+      - SERVICE:.spec.object.name|W
+      - PROTOCOL:.spec.object.protocol|W
+      - PORT:.spec.object.port|WN
+      - PATH:.spec.object.path|W
+      - TTL-DAYS:.spec.object.sensors_ttl_days|WN
+      - OWNER:.metadata.ownerReferences[0].name|W
+      - SUCCESS-REASON:.status.sync_status.success.reason|W
+      - MESSAGE:.status.sync_status.error.message|W
+
+  mon.k.yandex-team.ru/v1/themonitoringshards:
+    sortColumn: NAME:asc
+    columns:
+      - NAME:.metadata.name
+      - GEN:.metadata.generation|NR
+      - OBS:.status.sync_status.observed_generation|NR
+      - APPLIED:.status.sync_status.applied_generation|NR
+      - SUCCESS:.status.sync_status.success.status
+      - ERROR:.status.sync_status.error.status
+      - ERR-REASON:.status.sync_status.error.reason
+      - CLUSTER:.spec.object.cluster_id|W
+      - SERVICE:.spec.object.service_id|W
+      - TTL-DAYS:.spec.object.sensors_ttl_days|WN
+      - OWNER:.metadata.ownerReferences[0].name|W
+      - SUCCESS-REASON:.status.sync_status.success.reason|W
+      - MESSAGE:.status.sync_status.error.message|W
