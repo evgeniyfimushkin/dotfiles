@@ -47,6 +47,7 @@ in
     ../../modules/desktop/tpm.nix
     ../../modules/desktop/vscodium.nix
     # ../../modules/desktop/wine.nix
+    ../../modules/desktop/happ-nixos/happ-module.nix
   ];
 
   my.zshTheme = "maran";
@@ -56,4 +57,5 @@ in
 
   # Explicitly keep standard dbus to prevent unwanted switch to dbus-broker
   services.dbus.implementation = "dbus";
+  services.happ.enable = true;
 }
