@@ -85,7 +85,7 @@ button:hover {
     background-color: @main;
 }
 
-#mode {
+#submap {
     background-color: @muted;
     box-shadow: inset 0 -3px @main;
 }
@@ -100,9 +100,9 @@ button:hover {
 #network,
 #pulseaudio,
 #wireplumber,
-#custom-media,
+#mpris,
 #tray,
-#mode,
+#submap,
 #idle_inhibitor,
 #scratchpad,
 #power-profiles-daemon,
@@ -122,9 +122,9 @@ button:hover {
 #network:hover,
 #pulseaudio:hover,
 #wireplumber:hover,
-#custom-media:hover,
+#mpris:hover,
 #tray:hover,
-#mode:hover,
+#submap:hover,
 #idle_inhibitor:hover,
 #scratchpad:hover,
 #power-profiles-daemon:hover,

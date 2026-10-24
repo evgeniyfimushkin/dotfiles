@@ -21,6 +21,8 @@
     gst_all_1.gst-libav
   ];
 
+  security.rtkit.enable = true;
+
   services.pipewire = {
     enable = true;
     pulse.enable = true;

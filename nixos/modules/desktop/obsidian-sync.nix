@@ -9,12 +9,15 @@
     description = "obsidian sync";
     after = [ "network-online.target" ];
     wants = [ "network-online.target" ];
+    path = [
+      pkgs.git
+      pkgs.openssh
+      pkgs.coreutils
+    ];
     serviceConfig = {
       Type = "oneshot";
       User = "eugene";
-      Group = "eugene";
-      ExecStart = "/home/eugene/scripts/obsidian-sync.sh";
-      Path = [ pkgs.git ];
+      ExecStart = "${pkgs.bash}/bin/bash ${../../../scripts/obsidian-sync.sh}";
     };
   };
 

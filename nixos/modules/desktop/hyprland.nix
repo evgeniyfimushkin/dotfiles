@@ -12,8 +12,20 @@
     xwayland.enable = true;
   };
 
+  programs.hyprlock.enable = true;
+
+  systemd.user.targets.hyprland-session = {
+    description = "Hyprland graphical session";
+    bindsTo = [ "graphical-session.target" ];
+    wants = [ "graphical-session-pre.target" ];
+    after = [ "graphical-session-pre.target" ];
+  };
+
+  systemd.packages = [ pkgs.hyprpolkitagent ];
+  systemd.user.services.hyprpolkitagent.wantedBy = [ "graphical-session.target" ];
+
   environment.systemPackages = with pkgs; [
-    hyprlock
+    hyprpolkitagent
     hyprpaper
     hyprsunset
     hyprpicker
@@ -29,6 +41,7 @@
     wofi
     fastfetch # for flex
     wl-clipboard
+    wl-clip-persist
     cliphist
     brightnessctl
     nwg-displays
