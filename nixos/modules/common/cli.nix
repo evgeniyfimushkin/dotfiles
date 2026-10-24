@@ -51,6 +51,7 @@ in
     ncdu
     certbot
     clinfo
+    codex
   ];
   programs.git.enable = true;
 }
