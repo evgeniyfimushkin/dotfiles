@@ -28,8 +28,8 @@
 
   services.sysstat.enable = true;
 
-  services.journald.extraConfig = ''
-    SystemMaxUse=1G
-    MaxRetentionSec=30day
-  '';
+  services.journald.settings.Journal = {
+    SystemMaxUse = "1G";
+    MaxRetentionSec = "30day";
+  };
 }

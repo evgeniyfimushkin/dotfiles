@@ -57,5 +57,5 @@ in
 
   # Explicitly keep standard dbus to prevent unwanted switch to dbus-broker
   services.dbus.implementation = "dbus";
-  #services.happ.enable = true;
+  services.happ.enable = true;
 }

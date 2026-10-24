@@ -47,7 +47,7 @@ in
     my-kubernetes-helm
     my-helmfile
     mdf2iso
-    fuseiso
+    # fuseiso
     ncdu
     certbot
     clinfo
