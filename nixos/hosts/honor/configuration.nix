@@ -58,4 +58,21 @@ in
   # Explicitly keep standard dbus to prevent unwanted switch to dbus-broker
   services.dbus.implementation = "dbus";
   services.happ.enable = true;
+
+  services.wg-feed = {
+    enable = true;
+    # Upstream pins Go 1.25, which current nixpkgs no longer provides.
+    package = pkgs.wg-feed.override { go_1_25 = pkgs.go; };
+    # Keep the subscription URL and its key outside Git and the Nix store.
+    environmentFile = "/etc/wg-feed/subscription.env";
+
+    feeds.main = {
+      sync = {
+        enabled = true;
+        mode = "polling";
+        endpoints = [ "$SUBSCRIPTION_URL" ];
+      };
+      backends.default.type = "wg-quick";
+    };
+  };
 }
